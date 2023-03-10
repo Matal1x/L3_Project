@@ -7,20 +7,25 @@ from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
 import os
 
 # We set the directory to static/rdf manually to avoid errors
-rdfpath = Path().absolute().parent.joinpath(
+mainrdfpath = Path().absolute().parent.joinpath(
+    "static").joinpath('rdf').joinpath("main.ttl")
+temprdfpath = Path().absolute().parent.joinpath(
     "static").joinpath('rdf').joinpath("temp.ttl")
 
 g = RDFGraph()
-g.parse("static\\rdf\\test.ttl")
+g.parse("static\\rdf\\main.ttl")
 ex = Namespace("http://example.org/")
 g.bind("ex", ex)
 
 
 def graph_exist(S=None, P=None, O=None):
+    """
+    returns a boolean value, check if a Subject, Predicat, Object or a combination of those exists
+    """
     return ((S, P, O) in g)
 
 
-def get_graph(S, P, O):
+def get_graph(S=None, P=None, O=None):
     """
     to get the desired tuples make sure to use this function as follows: 
     get_grapth(URIRef(ex+"Subject"), URIRef(ex+"Predicat"), Literal(Object)) if anyone the three as not specified, pass ONLY 'None' instead
@@ -30,16 +35,41 @@ def get_graph(S, P, O):
     temp.bind("ex", ex)
     temp += g.triples((S, P, O))
     temp.serialize(
-        destination=rdfpath, format="turtle")
+        destination=temprdfpath, format="turtle")
 
 
 def delete_graph(S=None, P=None, O=None):
-    for ((S, P, O)) in g:
-        g.remove((S, P, O))
+    """
+    beware not to put all values as empty or else it will remove the whole graph
+    don't worry if you do so, you can regenerate it with the anycsvtordf.py file
+    """
+    g.remove((S, P, O))
+    g.serialize(destination=mainrdfpath, format="turtle")
+    print("Deletion successful!")
 
 
-def add_graph(S=None, P=None, O=None):
+def add_graph(S, P, O):
+    """
+    ALL elements must be specified
+    if triple already exists, it will just be ignored and won't be duplicated
+    """
     g.add((S, P, O))
+    g.serialize(destination=mainrdfpath, format="turtle")
+    print("Addition successful!")
 
 
-get_graph(None, URIRef(ex+"SourceIP"), None)
+def modify_graph(S, P, O):
+    """
+    ALL elements must be specified
+    """
+    g.remove((S, P, None))
+    g.add((S, P, O))
+    g.serialize(destination=mainrdfpath, format="turtle")
+    print("Modification successful!")
+
+
+# print(graph_exist(URIRef(ex+"1"), URIRef(ex+"SourceIP"), None))                       WORKS!
+# get_graph(None, URIRef(ex+"SourceIP"), None)                                          WORKS!
+# delete_graph()                                                                        WORKS!
+# add_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"), Literal("10/03/2023 23:40"))       WORKS!
+# modify_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"),Literal("10/03/2023 23:57"))      WORKS!

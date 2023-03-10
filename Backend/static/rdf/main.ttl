@@ -105,7 +105,8 @@ ex:10 ex:DestinationIP "151.101.124.84" ;
     ex:ResponseTimeTimeStandardDeviation "0.0" ;
     ex:ResponseTimeTimeVariance "0.0" ;
     ex:SourceIP "192.168.20.191" ;
-    ex:SourcePort "49872" .
+    ex:SourcePort "49872" ;
+    ex:TimeStamp "10/03/2023 23:57" .
 
 ex:2 ex:DestinationIP "96.17.115.57" ;
     ex:DestinationPort "443" ;
