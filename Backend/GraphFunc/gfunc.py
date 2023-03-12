@@ -38,7 +38,7 @@ def get_graph(S=None, P=None, O=None):
         destination=temprdfpath, format="turtle")
 
 
-def delete_graph(S=None, P=None, O=None):
+def delete_graph(S, P, O):
     """
     beware not to put all values as empty or else it will remove the whole graph
     don't worry if you do so, you can regenerate it with the anycsvtordf.py file
