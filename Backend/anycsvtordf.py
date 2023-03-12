@@ -18,7 +18,7 @@ sample = pd.read_csv(f'static\csv\{csvpath}', low_memory=False)
 sample = sample.replace(to_replace=" ", value="_", regex=True)
 
 # We mark all missing/empty data as "unknown". This makes it easy to delete triples containing this later.
-sample = sample.fillna("nan")
+sample = sample.fillna("unknown")
 
 # We initialise an RDF graph variable
 g = RDFGraph()
@@ -36,8 +36,8 @@ for i in sample.index:                      # We iterate through the rows
               Literal(str(sample.loc[i][predicat]))))
         # (name of the row, name of the column, value)
 
-# We remove triples that we marked as nan earlier.
-g.remove((None, None, Literal("nan")))
+# We remove triples that we marked as unknown earlier.
+g.remove((None, None, Literal("unknown")))
 
 # We save the graph in the turtle format
 
@@ -53,5 +53,4 @@ G = rdflib_to_networkx_graph(g)
 print("\nnetworkx Graph loaded successfully with length {}".format(len(G)))
 net = Network('1920px', '1080px')
 net.from_nx(G)
-net.write_html(name="wow.html")
 net.show("templates\generatedgraphs\default.html", notebook=False)
