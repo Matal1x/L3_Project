@@ -1,0 +1,24 @@
+@prefix ex: <http://example.org/> .
+
+ex:0 ex:SourceIP "72.21.91.42" .
+
+ex:1 ex:SourceIP "192.168.20.191" .
+
+ex:10 ex:SourceIP "192.168.20.191" .
+
+ex:2 ex:SourceIP "192.168.20.191" .
+
+ex:3 ex:SourceIP "192.168.20.191" .
+
+ex:4 ex:SourceIP "192.168.20.191" .
+
+ex:5 ex:SourceIP "192.168.20.191" .
+
+ex:6 ex:SourceIP "192.168.20.191" .
+
+ex:7 ex:SourceIP "192.168.20.191" .
+
+ex:8 ex:SourceIP "192.168.20.191" .
+
+ex:9 ex:SourceIP "192.168.20.191" .
+
