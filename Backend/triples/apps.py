@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GraphsConfig(AppConfig):
+class TriplesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Graphs'
+    name = 'triples'
