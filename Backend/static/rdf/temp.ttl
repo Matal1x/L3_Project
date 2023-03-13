@@ -1,24 +1,24 @@
 @prefix ex: <http://example.org/> .
 
-ex:0 ex:SourceIP "72.21.91.42" .
+ex:0 ex:DestinationIP "192.168.20.191" .
 
-ex:1 ex:SourceIP "192.168.20.191" .
+ex:1 ex:DestinationIP "195.201.169.48" .
 
-ex:10 ex:SourceIP "192.168.20.191" .
+ex:10 ex:DestinationIP "151.101.124.84" .
 
-ex:2 ex:SourceIP "192.168.20.191" .
+ex:2 ex:DestinationIP "96.17.115.57" .
 
-ex:3 ex:SourceIP "192.168.20.191" .
+ex:3 ex:DestinationIP "96.114.14.140" .
 
-ex:4 ex:SourceIP "192.168.20.191" .
+ex:4 ex:DestinationIP "23.78.199.198" .
 
-ex:5 ex:SourceIP "192.168.20.191" .
+ex:5 ex:DestinationIP "66.218.84.45" .
 
-ex:6 ex:SourceIP "192.168.20.191" .
+ex:6 ex:DestinationIP "151.101.124.237" .
 
-ex:7 ex:SourceIP "192.168.20.191" .
+ex:7 ex:DestinationIP "151.101.124.237" .
 
-ex:8 ex:SourceIP "192.168.20.191" .
+ex:8 ex:DestinationIP "104.244.42.195" .
 
-ex:9 ex:SourceIP "192.168.20.191" .
+ex:9 ex:DestinationIP "151.101.124.84" .
 

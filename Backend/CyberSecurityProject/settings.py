@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'triples',
+<<<<<<< HEAD
     "rest_framework",
 
+=======
+    'GraphFunc',
+>>>>>>> 046cf8dc1355af7ae46af9ef0a067fd0862d2d30
 ]
 
 MIDDLEWARE = [
