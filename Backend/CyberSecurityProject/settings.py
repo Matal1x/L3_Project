@@ -40,12 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'triples',
-<<<<<<< HEAD
     "rest_framework",
-
-=======
     'GraphFunc',
->>>>>>> 046cf8dc1355af7ae46af9ef0a067fd0862d2d30
 ]
 
 MIDDLEWARE = [
@@ -64,7 +60,7 @@ ROOT_URLCONF = 'CyberSecurityProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,],
+        'DIRS': [BASE_DIR,TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

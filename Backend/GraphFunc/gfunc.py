@@ -94,8 +94,8 @@ def modify_graph(S, P, O):
     print("Modification successful!")
 
 
-print(graph_exist("11", None, None))                       
-get_graph(None, "DestinationIP", None)                                         
+#print(graph_exist("11", None, None))                       
+#get_graph(None, "DestinationIP", None)                                         
 # delete_graph()                                                                        WORKS!
 # add_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"), Literal("10/03/2023 23:40"))       WORKS!
 # modify_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"),Literal("10/03/2023 23:57"))      WORKS!

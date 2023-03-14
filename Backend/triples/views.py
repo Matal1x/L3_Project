@@ -1,19 +1,31 @@
 from django.shortcuts import render
-from . import models
-from . import forms 
+from .models import Triple
+from .forms import TripleForm
 # Create your views here.
 
+
+
+
 def index(request):
-    return render(request,'triples/index.html')
+        return render(request,'templates/generatedgraphs/index.html')
 
 def form_name_view(request):
-    form=forms.MyForm() #instance of a form
-    if request.method == 'POST':
-        form= forms.MyForm(request.POST)
-        if form.is_valid():
-            form.save()
-            print("validated data")
-            print("subject:"+form.cleaned_data['subject'])
-            print("predicate:"+form.cleaned_data['predicate'])
-            print("obj:"+form.cleaned_data['obj'])
-    return render(request,'triples/form_page.html',{'form':form}) #request,pass in th page i want to show,pass in the context dictionary: we'll give it the key form and we'll pass in that actual form object 
+        form=TripleForm() #instance of a form
+        if request.method == 'POST':
+            form= TripleForm(request.POST)
+            if form.is_valid():
+                print("validated data")
+                if form.cleaned_data['subject'] == "":
+                      form.cleaned_data['subject']=None
+                if form.cleaned_data['predicat'] == "None":
+                      form.cleaned_data['predicat']=None
+                if form.cleaned_data['objectV'] == "":
+                      form.cleaned_data['objectV']=None
+                print("subject:", type(form.cleaned_data['subject']))
+                print("predicate:", type(form.cleaned_data['predicat']))
+                print("objectV:", type(form.cleaned_data['objectV']))
+                
+
+
+        return render(request,'templates/generatedgraphs/formpage.html',{'form':form}) #request,pass in th page i want to show,pass in the context dictionary: we'll give it the key form and we'll pass in that actual form object 
+

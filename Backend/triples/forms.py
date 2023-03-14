@@ -1,9 +1,15 @@
 from django import forms
-from triples.models import  Triple
+from . import  models
 
-
-class MyForm(forms.ModelForm):
+ 
+class TripleForm(forms.ModelForm):
+    subject=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"All"}))
+    objectV=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"All"}))
     class Meta: #going to connect the model to the form fields
-        model=Triple
-        fields= "__all__"
-form=MyForm
+        model=models.Triple
+        fields= [
+            'subject',
+            'predicat',
+            'objectV',
+        ]
+#form=TripleForm

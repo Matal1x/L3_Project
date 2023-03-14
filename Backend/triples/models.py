@@ -41,9 +41,9 @@ class Triple(models.Model):
         ResponseTimeTimeSkewFromMode= 'ResponseTimeTimeSkewFromMode', _('Response Time Time Skew From Mode')
         ResponseTimeTimeCoefficientofVariation= 'ResponseTimeTimeCoefficientofVariation', _('Response Time Time Coefficient of Variation')
         DoH = 'DoH', _('DoH')
-    subject = models.CharField(max_length=255, default=None,null=True)
+    subject = models.CharField(max_length=255, default=None,null=True, blank=False)
     predicat = models.CharField(max_length=255, choices=Predicat.choices, default=None, null=True)
-    objectV = models.CharField(max_length=255, default=None,null=True)
+    objectV = models.CharField(max_length=255, default=None,null=True,blank=False)
     
     def __str__(self) -> str:
         return f"{self.subject}, {self.predicat}, {self.objectV}"
