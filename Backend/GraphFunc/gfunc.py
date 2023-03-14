@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rdflib import Graph as RDFGraph
 from rdflib import Literal, Namespace, URIRef
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
+from pyvis.network import Network
 
 # Create your views here.
 import os
@@ -50,6 +51,14 @@ def get_graph(S=None, P=None, O=None):
     temp += g.triples((S, P, O))
     temp.serialize(
         destination='static\\rdf\\temp.ttl', format="turtle")
+    G = rdflib_to_networkx_graph(temp)
+    net = Network('1920px', '1080px')
+    net.show_buttons()
+    net.from_nx(G)
+    net.write_html("templates\\generatedgraphs\\temp.html", local=False )
+    
+    return temp.serialize(format="turtle")
+    
 
 
 def delete_graph(S, P, O):
