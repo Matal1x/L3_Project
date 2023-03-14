@@ -1,24 +1,24 @@
 @prefix ex: <http://example.org/> .
 
-ex:0 ex:SourcePort "443" .
+ex:0 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:1 ex:SourcePort "51043" .
+ex:1 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:10 ex:SourcePort "49872" .
+ex:10 ex:TimeStamp "10/03/2023 23:57" .
 
-ex:2 ex:SourcePort "51021" .
+ex:2 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:3 ex:SourcePort "50308" .
+ex:3 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:4 ex:SourcePort "50983" .
+ex:4 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:5 ex:SourcePort "49762" .
+ex:5 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:6 ex:SourcePort "50649" .
+ex:6 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:7 ex:SourcePort "50650" .
+ex:7 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:8 ex:SourcePort "49745" .
+ex:8 ex:TimeStamp "14/01/2020_15:49" .
 
-ex:9 ex:SourcePort "49872" .
+ex:9 ex:TimeStamp "14/01/2020_15:49" .
 
