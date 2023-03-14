@@ -10,8 +10,8 @@ import os
 # We set the directory to static/rdf manually to avoid errors
 mainrdfpath = Path().absolute().parent.joinpath(
     "static").joinpath('rdf').joinpath("main.ttl")
-temprdfpath = Path().absolute().parent.joinpath(
-    "static").joinpath('rdf').joinpath("temp.ttl")
+# temprdfpath = Path().absolute().parent.joinpath(
+#     "static").joinpath('rdf').joinpath("temp.ttl")
 
 g = RDFGraph()
 g.parse("static\\rdf\\main.ttl")
@@ -49,7 +49,7 @@ def get_graph(S=None, P=None, O=None):
     
     temp += g.triples((S, P, O))
     temp.serialize(
-        destination=temprdfpath, format="turtle")
+        destination='static\\rdf\\temp.ttl', format="turtle")
 
 
 def delete_graph(S, P, O):
@@ -95,7 +95,7 @@ def modify_graph(S, P, O):
 
 
 #print(graph_exist("11", None, None))                       
-#get_graph(None, "DestinationIP", None)                                         
+get_graph(None, "SourceIP", None)                                         
 # delete_graph()                                                                        WORKS!
 # add_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"), Literal("10/03/2023 23:40"))       WORKS!
 # modify_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"),Literal("10/03/2023 23:57"))      WORKS!

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Triple
 from .forms import TripleForm
+from GraphFunc import gfunc
 # Create your views here.
 
 
@@ -21,10 +22,8 @@ def form_name_view(request):
                       form.cleaned_data['predicat']=None
                 if form.cleaned_data['objectV'] == "":
                       form.cleaned_data['objectV']=None
-                print("subject:", type(form.cleaned_data['subject']))
-                print("predicate:", type(form.cleaned_data['predicat']))
-                print("objectV:", type(form.cleaned_data['objectV']))
                 
+                gfunc.get_graph(form.cleaned_data['subject'], form.cleaned_data['predicat'], form.cleaned_data['objectV'])
 
 
         return render(request,'templates/generatedgraphs/formpage.html',{'form':form}) #request,pass in th page i want to show,pass in the context dictionary: we'll give it the key form and we'll pass in that actual form object 
