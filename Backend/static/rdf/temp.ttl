@@ -1,24 +1,24 @@
 @prefix ex: <http://example.org/> .
 
-ex:0 ex:SourceIP "72.21.91.42" .
+ex:0 ex:SourcePort "443" .
 
-ex:1 ex:SourceIP "192.168.20.191" .
+ex:1 ex:SourcePort "51043" .
 
-ex:10 ex:SourceIP "192.168.20.191" .
+ex:10 ex:SourcePort "49872" .
 
-ex:2 ex:SourceIP "192.168.20.191" .
+ex:2 ex:SourcePort "51021" .
 
-ex:3 ex:SourceIP "192.168.20.191" .
+ex:3 ex:SourcePort "50308" .
 
-ex:4 ex:SourceIP "192.168.20.191" .
+ex:4 ex:SourcePort "50983" .
 
-ex:5 ex:SourceIP "192.168.20.191" .
+ex:5 ex:SourcePort "49762" .
 
-ex:6 ex:SourceIP "192.168.20.191" .
+ex:6 ex:SourcePort "50649" .
 
-ex:7 ex:SourceIP "192.168.20.191" .
+ex:7 ex:SourcePort "50650" .
 
-ex:8 ex:SourceIP "192.168.20.191" .
+ex:8 ex:SourcePort "49745" .
 
-ex:9 ex:SourceIP "192.168.20.191" .
+ex:9 ex:SourcePort "49872" .
 
