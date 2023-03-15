@@ -52,9 +52,49 @@ def get_graph(S=None, P=None, O=None):
     temp.serialize(
         destination='static\\rdf\\temp.ttl', format="turtle")
     G = rdflib_to_networkx_graph(temp)
-    net = Network(height="750px", width="100%", bgcolor="#222222", font_color="white")
-    net.show_buttons()
+    net = Network(height="750px", width="100%", font_color="black")
     net.from_nx(G)
+    #net.show_buttons()
+    net.set_options("""
+                    const options = {
+  "nodes": {
+    "borderWidth": null,
+    "borderWidthSelected": null,
+    "opacity": null,
+    "font": {
+      "face": "verdana"
+    },
+    "size": null
+  },
+  "edges": {
+    "arrows": {
+      "to": {
+        "enabled": true
+      }
+    },
+    "color": {
+      "inherit": true
+    },
+    "font": {
+      "face": "verdana"
+    },
+    "selfReferenceSize": null,
+    "selfReference": {
+      "angle": 0.7853981633974483
+    },
+    "smooth": {
+      "forceDirection": "none"
+    }
+  },
+  "interaction": {
+    "hover": true
+  },
+  "physics": {
+    "minVelocity": 0.75,
+    "solver": "repulsion"
+  }
+}
+                    """)
     net.write_html("templates\\generatedgraphs\\temp.html", local=False )
     
     return temp.serialize(format="turtle")
