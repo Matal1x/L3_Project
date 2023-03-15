@@ -15,10 +15,9 @@ def index(request):
 def form_name_view(request):
         form=TripleForm() #instance of a form
         checked = False
-        graph=gfunc.get_graph()
+        graph=""
         if request.method == 'POST':
             form= TripleForm(request.POST)
-            graph=gfunc.get_graph()
             if form.is_valid():
                 print("validated data")
                 if form.cleaned_data['subject'] == "":
@@ -31,8 +30,7 @@ def form_name_view(request):
                 print("predicate:", form.cleaned_data['predicat'])
                 print("objectV:", form.cleaned_data['objectV'])
                 
-                gfunc.get_graph(form.cleaned_data['subject'], form.cleaned_data['predicat'], form.cleaned_data['objectV'])
-               
+                graph=gfunc.get_graph(form.cleaned_data['subject'], form.cleaned_data['predicat'], form.cleaned_data['objectV'])
                 checked = True 
                 
             
@@ -41,3 +39,5 @@ def form_name_view(request):
         return render(request,'templates/triples/formpage.html',{'form':form, 'checked': checked,'graph':graph }) #request,pass in th page i want to show,pass in the context dictionary: we'll give it the key form and we'll pass in that actual form object 
 
 
+def render_graph(r):
+      return render(r, 'templates/generatedgraphs/temp.html')

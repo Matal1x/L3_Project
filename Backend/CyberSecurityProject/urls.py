@@ -23,6 +23,7 @@ urlpatterns = [
       
     path('admin/', admin.site.urls), #admin site
     path('formpage/',views.form_name_view, name='form_name'),
+    path('graphrender/', views.render_graph, name="render_graph")
     
     
 ]

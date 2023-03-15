@@ -52,7 +52,7 @@ def get_graph(S=None, P=None, O=None):
     temp.serialize(
         destination='static\\rdf\\temp.ttl', format="turtle")
     G = rdflib_to_networkx_graph(temp)
-    net = Network('1920px', '1080px')
+    net = Network(height="750px", width="100%", bgcolor="#222222", font_color="white")
     net.show_buttons()
     net.from_nx(G)
     net.write_html("templates\\generatedgraphs\\temp.html", local=False )
