@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'triples',
     "rest_framework",
     'GraphFunc',
+    'api',
 ]
 
 MIDDLEWARE = [

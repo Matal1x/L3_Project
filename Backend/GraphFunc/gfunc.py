@@ -20,9 +20,16 @@ ex = Namespace("http://example.org/")
 g.bind("ex", ex)
 
 def validator(S):
-    if S is not None:
-        return URIRef(ex+S)
+  if S == "" or S == "None":
+      S = None 
+  if S is not None:
+      return URIRef(ex+S)
     
+def object_validator(O):
+  if O == "" or O == "None":
+      O = None
+  if O is not None:
+    return Literal(O)
     
     
 def graph_exist(S, P, O):
@@ -32,6 +39,7 @@ def graph_exist(S, P, O):
     
     S=validator(S)
     P=validator(P)
+    O=object_validator(O)
     
     return ((S, P, O) in g)
 
@@ -45,8 +53,10 @@ def get_graph(S=None, P=None, O=None):
     ex = Namespace("http://example.org/")
     temp.bind("ex", ex)
     
+    
     S=validator(S)
     P=validator(P)
+    O=object_validator(O)
     
     temp += g.triples((S, P, O))
     temp.serialize(
@@ -55,46 +65,6 @@ def get_graph(S=None, P=None, O=None):
     net = Network(height="750px", width="100%", font_color="black")
     net.from_nx(G)
     #net.show_buttons()
-    net.set_options("""
-                    const options = {
-  "nodes": {
-    "borderWidth": null,
-    "borderWidthSelected": null,
-    "opacity": null,
-    "font": {
-      "face": "verdana"
-    },
-    "size": null
-  },
-  "edges": {
-    "arrows": {
-      "to": {
-        "enabled": true
-      }
-    },
-    "color": {
-      "inherit": true
-    },
-    "font": {
-      "face": "verdana"
-    },
-    "selfReferenceSize": null,
-    "selfReference": {
-      "angle": 0.7853981633974483
-    },
-    "smooth": {
-      "forceDirection": "none"
-    }
-  },
-  "interaction": {
-    "hover": true
-  },
-  "physics": {
-    "minVelocity": 0.75,
-    "solver": "repulsion"
-  }
-}
-                    """)
     net.write_html("templates\\generatedgraphs\\temp.html", local=False )
     
     return temp.serialize(format="turtle")
@@ -109,9 +79,10 @@ def delete_graph(S, P, O):
     
     S=validator(S)
     P=validator(P)
+    O=object_validator(O)
     
     g.remove((S, P, O))
-    g.serialize(destination=mainrdfpath, format="turtle")
+    g.serialize(destination='static\\rdf\\temp.ttl', format="turtle")
     print("Deletion successful!")
 
 
@@ -123,6 +94,7 @@ def add_graph(S, P, O):
     
     S=validator(S)
     P=validator(P)
+    O=object_validator(O)
     
     g.add((S, P, O))
     g.serialize(destination=mainrdfpath, format="turtle")
@@ -136,6 +108,7 @@ def modify_graph(S, P, O):
     
     S=validator(S)
     P=validator(P)
+    O=object_validator(O)
     
     g.remove((S, P, None))
     g.add((S, P, O))

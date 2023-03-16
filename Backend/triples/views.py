@@ -6,7 +6,7 @@ from django.views.generic import View,TemplateView
 # Create your views here.
 
 class MainGraphView(TemplateView):
-      template_name='generatedgraphs/main.ttl'
+      template_name='generatedgraphs/main.htmll'
 
 
 def index(request):
