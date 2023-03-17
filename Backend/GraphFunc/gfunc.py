@@ -14,10 +14,13 @@ mainrdfpath = Path().absolute().parent.joinpath(
 # temprdfpath = Path().absolute().parent.joinpath(
 #     "static").joinpath('rdf').joinpath("temp.ttl")
 
-g = RDFGraph()
-g.parse("static\\rdf\\main.ttl")
 ex = Namespace("http://example.org/")
-g.bind("ex", ex)
+
+def Load_graph():
+    g = RDFGraph()
+    g.parse("static\\rdf\\main.ttl")
+    g.bind("ex", ex)
+    return g
 
 def validator(S):
   if S == "" or S == "None":
@@ -32,11 +35,11 @@ def object_validator(O):
     return Literal(O)
     
     
-def graph_exist(S, P, O):
+def graph_exist(S=None, P=None, O=None):
     """
     returns a boolean value, check if a Subject, Predicat, Object or a combination of those exists
     """
-    
+    g = Load_graph()
     S=validator(S)
     P=validator(P)
     O=object_validator(O)
@@ -44,80 +47,80 @@ def graph_exist(S, P, O):
     return ((S, P, O) in g)
 
 
-def get_graph(S=None, P=None, O=None):
-    """
-    to get the desired tuples make sure to use this function as follows: 
-    get_grapth(URIRef(ex+"Subject"), URIRef(ex+"Predicat"), Literal(Object)) if anyone the three as not specified, pass ONLY 'None' instead
-    """
+def get_textual_rdf(S,P,O):
+    S=validator(S); P=validator(P); O=object_validator(O)
+    g = Load_graph()
+    if S is None and O is None and P is None:
+        return g.serialize(format="ttl")
+    
     temp = RDFGraph()
-    ex = Namespace("http://example.org/")
-    temp.bind("ex", ex)
-    
-    
-    S=validator(S)
-    P=validator(P)
-    O=object_validator(O)
-    
+    temp.bind('ex', ex)
     temp += g.triples((S, P, O))
-    temp.serialize(
-        destination='static\\rdf\\temp.ttl', format="turtle")
-    G = rdflib_to_networkx_graph(temp)
-    net = Network(height="750px", width="100%", font_color="black")
-    net.from_nx(G)
-    #net.show_buttons()
-    net.write_html("templates\\generatedgraphs\\temp.html", local=False )
-    
-    return temp.serialize(format="turtle")
+    return temp.serialize(format="ttl")
+
+
+
+def get_graph(S=None, P=None, O=None):
+   temp = RDFGraph()
+   temp.bind('ex', ex)
+   temp.parse(data=get_textual_rdf(S,P,O))
+   G = rdflib_to_networkx_graph(temp)
+   net = Network(height="750px", width="100%", font_color="black")
+   net.from_nx(G)
+   net.write_html("templates\\generatedgraphs\\temp.html", local=False )
+   return get_textual_rdf(S,P,O)
     
 
 
-def delete_graph(S, P, O):
-    """
-    beware not to put all values as empty or else it will remove the whole graph
-    don't worry if you do so, you can regenerate it with the anycsvtordf.py file
-    """
-    
-    S=validator(S)
-    P=validator(P)
-    O=object_validator(O)
-    
+def delete_graph(S, P, O): 
+    S=validator(S); P=validator(P); O=object_validator(O)
+    g= Load_graph()
     g.remove((S, P, O))
-    g.serialize(destination='static\\rdf\\temp.ttl', format="turtle")
+    g.serialize(destination='static\\rdf\\main.ttl', format="turtle")
     print("Deletion successful!")
 
 
-def add_graph(S, P, O):
-    """
-    ALL elements must be specified
-    if triple already exists, it will just be ignored and won't be duplicated
-    """
-    
-    S=validator(S)
-    P=validator(P)
-    O=object_validator(O)
-    
+def add_triple(S, P, O):
+    g = Load_graph()
     g.add((S, P, O))
-    g.serialize(destination=mainrdfpath, format="turtle")
+    g.serialize(destination='static\\rdf\\main.ttl', format="turtle")
     print("Addition successful!")
 
+def add_graph(rdf_text:str, rdf_format:str):
+    g=Load_graph()
+    try:
+        g.parse(data=rdf_text, format="turtle")
+        g.serialize(destination='static\\rdf\\main.ttl', format=rdf_format)
+        return g.serialize(format=rdf_format)
+    except Exception as e: print(e)
 
-def modify_graph(S, P, O):
-    """
-    ALL elements must be specified
-    """
+def modify_triple(S, P, O):
+    S=validator(S); P=validator(P); O=object_validator(O)
+    g= Load_graph()
     
-    S=validator(S)
-    P=validator(P)
-    O=object_validator(O)
-    
-    g.remove((S, P, None))
-    g.add((S, P, O))
-    g.serialize(destination=mainrdfpath, format="turtle")
-    print("Modification successful!")
+    if  (S,P,None) in g:
+        g.set((S, P, O))
+        g.serialize(destination='static\\rdf\\main.ttl', format="turtle")
+        print("Modification successful!")
+        
+    else:
+        print("Cannot find Triple with such subject and predicat")
 
 
 #print(graph_exist("11", None, None))                       
-get_graph(None, "SourceIP", None)                                         
+# get_graph(None, "SourceIP", None)                                         
 # delete_graph()                                                                        WORKS!
 # add_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"), Literal("10/03/2023 23:40"))       WORKS!
 # modify_graph(URIRef(ex+"10"), URIRef(ex+"TimeStamp"),Literal("10/03/2023 23:57"))      WORKS!
+
+
+# data ='''
+# @prefix ex: <http://example.org/> .
+
+# ex:36 ex:DestinationIP "192.168.1.1" ;
+#     ex:DestinationPort "65230" ;
+#     ex:DoH "True" .
+# '''
+# add_graph(data)
+
+# modify_triple("356", "DoH", "True")

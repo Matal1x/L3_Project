@@ -72,42 +72,6 @@ ex:1 ex:DestinationIP "195.201.169.48" ;
     ex:SourcePort "51043" ;
     ex:TimeStamp "14/01/2020_15:49" .
 
-ex:10 ex:DestinationIP "151.101.124.84" ;
-    ex:DestinationPort "443" ;
-    ex:DoH "False" ;
-    ex:Duration "0.02509" ;
-    ex:FlowBytesReceived "66" ;
-    ex:FlowBytesSent "55" ;
-    ex:FlowReceivedRate "2630.530092" ;
-    ex:FlowSentRate "2192.10841" ;
-    ex:PacketLengthCoefficientofVariation "0.090909091" ;
-    ex:PacketLengthMean "60.5" ;
-    ex:PacketLengthMedian "60.5" ;
-    ex:PacketLengthMode "55" ;
-    ex:PacketLengthSkewFromMedian "0.0" ;
-    ex:PacketLengthSkewFromMode "1.0" ;
-    ex:PacketLengthStandardDeviation "5.5" ;
-    ex:PacketLengthVariance "30.25" ;
-    ex:PacketTimeCoefficientofVariation "1.0" ;
-    ex:PacketTimeMean "0.012545" ;
-    ex:PacketTimeMedian "0.012545" ;
-    ex:PacketTimeMode "0.0" ;
-    ex:PacketTimeSkewFromMedian "0.0" ;
-    ex:PacketTimeSkewFromMode "1.0" ;
-    ex:PacketTimeStandardDeviation "0.012545" ;
-    ex:PacketTimeVariance "0.000157377" ;
-    ex:ResponseTimeTimeCoefficientofVariation "0.0" ;
-    ex:ResponseTimeTimeMean "0.02509" ;
-    ex:ResponseTimeTimeMedian "0.02509" ;
-    ex:ResponseTimeTimeMode "0.02509" ;
-    ex:ResponseTimeTimeSkewFromMedian "-10.0" ;
-    ex:ResponseTimeTimeSkewFromMode "-10.0" ;
-    ex:ResponseTimeTimeStandardDeviation "0.0" ;
-    ex:ResponseTimeTimeVariance "0.0" ;
-    ex:SourceIP "192.168.20.191" ;
-    ex:SourcePort "49872" ;
-    ex:TimeStamp "10/03/2023 23:57" .
-
 ex:2 ex:DestinationIP "96.17.115.57" ;
     ex:DestinationPort "443" ;
     ex:DoH "False" ;
@@ -179,6 +143,11 @@ ex:3 ex:DestinationIP "96.114.14.140" ;
     ex:SourceIP "192.168.20.191" ;
     ex:SourcePort "50308" ;
     ex:TimeStamp "14/01/2020_15:49" .
+
+ex:36 ex:DestinationPort "55555" ;
+    ex:DoH "False" ;
+    ex:SourceIP "192.168.20.191" ;
+    ex:SourcePort "69132" .
 
 ex:4 ex:DestinationIP "23.78.199.198" ;
     ex:DestinationPort "443" ;
@@ -358,41 +327,5 @@ ex:8 ex:DestinationIP "104.244.42.195" ;
     ex:ResponseTimeTimeVariance "0.0" ;
     ex:SourceIP "192.168.20.191" ;
     ex:SourcePort "49745" ;
-    ex:TimeStamp "14/01/2020_15:49" .
-
-ex:9 ex:DestinationIP "151.101.124.84" ;
-    ex:DestinationPort "443" ;
-    ex:DoH "False" ;
-    ex:Duration "0.02509" ;
-    ex:FlowBytesReceived "66" ;
-    ex:FlowBytesSent "55" ;
-    ex:FlowReceivedRate "2630.530092" ;
-    ex:FlowSentRate "2192.10841" ;
-    ex:PacketLengthCoefficientofVariation "0.090909091" ;
-    ex:PacketLengthMean "60.5" ;
-    ex:PacketLengthMedian "60.5" ;
-    ex:PacketLengthMode "55" ;
-    ex:PacketLengthSkewFromMedian "0.0" ;
-    ex:PacketLengthSkewFromMode "1.0" ;
-    ex:PacketLengthStandardDeviation "5.5" ;
-    ex:PacketLengthVariance "30.25" ;
-    ex:PacketTimeCoefficientofVariation "1.0" ;
-    ex:PacketTimeMean "0.012545" ;
-    ex:PacketTimeMedian "0.012545" ;
-    ex:PacketTimeMode "0.0" ;
-    ex:PacketTimeSkewFromMedian "0.0" ;
-    ex:PacketTimeSkewFromMode "1.0" ;
-    ex:PacketTimeStandardDeviation "0.012545" ;
-    ex:PacketTimeVariance "0.000157377" ;
-    ex:ResponseTimeTimeCoefficientofVariation "0.0" ;
-    ex:ResponseTimeTimeMean "0.02509" ;
-    ex:ResponseTimeTimeMedian "0.02509" ;
-    ex:ResponseTimeTimeMode "0.02509" ;
-    ex:ResponseTimeTimeSkewFromMedian "-10.0" ;
-    ex:ResponseTimeTimeSkewFromMode "-10.0" ;
-    ex:ResponseTimeTimeStandardDeviation "0.0" ;
-    ex:ResponseTimeTimeVariance "0.0" ;
-    ex:SourceIP "192.168.20.191" ;
-    ex:SourcePort "49872" ;
     ex:TimeStamp "14/01/2020_15:49" .
 

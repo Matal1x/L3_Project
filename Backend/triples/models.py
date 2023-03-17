@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from GraphFunc import gfunc
 # Create your models here.
 
 class Triple(models.Model):
