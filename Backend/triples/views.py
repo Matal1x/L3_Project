@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import Triple
-from .forms import TripleForm
+from .forms import TripleForm, rdf_queryForm
 from GraphFunc import gfunc
 from django.views.generic import View,TemplateView
+from rest_framework.decorators import api_view
 # Create your views here.
 
 class MainGraphView(TemplateView):
@@ -41,3 +42,17 @@ def form_name_view(request):
 
 def render_graph(r):
       return render(r, 'templates/generatedgraphs/temp.html')
+
+
+def Sparql_form_view(request):
+      sent = False
+      form = rdf_queryForm()
+      text=""
+      if request.method == 'POST':
+            form = rdf_queryForm(request.POST)
+            if form.is_valid():
+                  sent=True
+                  text = form.cleaned_data["sparql_query"]
+                  #awaiting the creation of sparql queryfunctions
+      return render(request, 'templates/triples/sparqlpage.html', {"sparqlform": form ,'query': text, 'sent': sent})
+      

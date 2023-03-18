@@ -25,4 +25,5 @@ urlpatterns = [
     path('formpage/',views.form_name_view, name='form_name'),
     path('graphrender/', views.render_graph, name="render_graph"),
     path('api/', include('api.urls')),
+    path('SPARQL/', include('triples.urls')),
 ]

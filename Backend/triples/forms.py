@@ -13,3 +13,9 @@ class TripleForm(forms.ModelForm):
             'objectV',
         ]
 #form=TripleForm
+
+class rdf_queryForm(forms.ModelForm):
+    sparql_query=forms.CharField(max_length=1000, required=True, widget=forms.Textarea(attrs={"placeholder": "Pass in your SPARQL query"}))
+    class Meta:
+        model=models.rdf_query
+        fields = ['sparql_query']

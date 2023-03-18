@@ -46,3 +46,8 @@ class Triple(models.Model):
     
     def __str__(self) -> str:
         return f"{self.subject}, {self.predicat}, {self.objectV}"
+
+
+
+class rdf_query(models.Model):
+    sparql_query=models.TextField(max_length=1000, null=False)
