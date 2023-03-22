@@ -55,4 +55,8 @@ def Sparql_form_view(request):
                   text = form.cleaned_data["sparql_query"]
                   #awaiting the creation of sparql queryfunctions
       return render(request, 'templates/triples/sparqlpage.html', {"sparqlform": form ,'query': text, 'sent': sent})
+
+
+def render_main(r):
+      return render(r, "static/rdf/main.ttl", content_type='text/turtle')
       

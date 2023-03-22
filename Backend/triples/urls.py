@@ -5,5 +5,5 @@ from . import views
 urlpatterns=[
     path('',views.form_name_view),
     path('request/', views.Sparql_form_view, name="sparql_get_request"),
-    
+    path('main/', views.render_main, name="main"),
 ]
