@@ -38,10 +38,7 @@ def DoHform(request):
                 
                   pre = form.cleaned_data['predicat']      
                       
-                  if form.cleaned_data['objectV'] == "":
-                      form.cleaned_data['objectV']="None"
-                 
-                  obj = form.cleaned_data['objectV']      
+                  obj = "None"       
                       
                   print("subject:", sub)
                   print("predicate:", pre)
@@ -105,11 +102,9 @@ def KDDform(request):
                       form.cleaned_data['predicat']="None"
                 
                   pre = form.cleaned_data['predicat']      
-                      
-                  if form.cleaned_data['objectV'] == "":
-                      form.cleaned_data['objectV']="None"
+
                  
-                  obj = form.cleaned_data['objectV']      
+                  obj = "None"    
                       
                   print("subject:", sub)
                   print("predicate:", pre)
