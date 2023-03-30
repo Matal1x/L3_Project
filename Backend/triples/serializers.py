@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from . models import Triple
+from . models import DoHTriple
 
 class TripleSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Triple
+        model=DoHTriple
         fields=[
             'subject',
             'predicate',

@@ -22,8 +22,8 @@ sample = sample.fillna("unknown")
 
 # We initialise an RDF graph variable
 g = RDFGraph()
-ex = Namespace("http://cybersecurity.org/DNS-over-HTTPS/")
-g.bind("CyD", ex)
+ex = Namespace("http://cybersecurity.org/DataSet/DNS/")
+g.bind("Cy", ex)
 
 
 # We begin creating RDFs
@@ -32,7 +32,7 @@ for i in sample.index:                      # We iterate through the rows
     for predicat in sample.columns:             # We iterate through the columns
 
         # We save rdf triple as the following:
-        g.add((URIRef(ex + f"{i}"), URIRef(ex + f"{predicat}"),
+        g.add((URIRef(ex + f"Attack{i}"), URIRef(ex + f"{predicat}"),
               Literal(str(sample.loc[i][predicat]))))
         # (name of the row, name of the column, value)
 

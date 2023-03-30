@@ -9,7 +9,7 @@
 <body>
     
     <div class="container">
-        <h2>choose a triple</h2>
+        <h2>You're Inspecting NSLKDD DATASET</h2>
         <p></p>
          <form method="POST">
             {{ form.as_p }}
@@ -17,9 +17,23 @@
             <input type="submit" value="submit" id="post">     
          </form>
         
-        {% if checked %}
-        <p>{{graph}}</p>
-        <a href="{% url 'render_graph' %}"> SEE GRAAAAAPh</a>
+        {% if found %}
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Predicat</th>
+                <th>Object</th>
+            </tr>
+            {% for r in JSONArray %}
+            <tr>
+                <td>{{r.s}}</td>
+                <td>{{r.p}}</td>
+                <td>{{r.o}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <a href="{% url 'triples:KDDgraph' %}"> SEE GRAAAAAPh</a>
         {% endif %}
          
     </div>

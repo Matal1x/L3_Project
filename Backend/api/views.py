@@ -15,7 +15,7 @@ from . import PY4J_customf
 def api_get_SELECT_JSON(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("no result found.", status=404)
     
@@ -35,7 +35,7 @@ def api_get_SELECT_JSON(request, graph, subject, predicat, objectV, *args, **kwa
 def api_get_ASK(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
     
     result = PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV)
     return Response(f"ASk QUERY result: {result}")
@@ -52,8 +52,7 @@ def api_get_ASK(request, graph, subject, predicat, objectV, *args, **kwargs):
 def api_get_CONSTRUCT(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV)
-    print(type(objectV), "    " , objectV)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
     
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("no result found.", status=404)
@@ -76,7 +75,7 @@ def api_put_INSERT(request, graph, subject, predicat, objectV, *args, **kwargs):
         print("no such predicat exists")
         return Response("no such predicat exists", status=400)
     
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
     if (subject is None) or (predicat is None) or (objectV is None):
         print("Must set values for all elements of the triple")
         return Response("Must set values for all elements of the triple", status=400)
@@ -94,7 +93,7 @@ def api_put_INSERT(request, graph, subject, predicat, objectV, *args, **kwargs):
 def api_put_DELETE(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("No matching triple. Cannot delete what doesn't exist.", status=404)
     
@@ -114,7 +113,7 @@ def api_put_DELETE(request, graph, subject, predicat, objectV, *args, **kwargs):
 def api_put_MODIFY(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
-    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, None)
+    (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, None, graph)
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("Cannot Modify what doesn't exist.", status=404)
     

@@ -2,8 +2,12 @@ from django.urls import path
 
 from . import views 
 
+app_name="triples"
+
 urlpatterns=[
-    # path('',views.form_name_view),
-    # path('request/', views.Sparql_form_view, name="sparql_get_request"),
-    path('main/', views.render_main, name="main"),
+    path('DoHform/', views.DoHform, name="DoHform"),
+    path("DoHgraph/", views.DoHgraph, name="DoHgraph"),
+    
+    path("KDDform/", views.KDDform ,name="KDDform"),
+    path("KDDgraph/", views.KDDgraph, name="KDDgraph"),
 ]

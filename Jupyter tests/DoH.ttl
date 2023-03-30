@@ -2,7 +2,7 @@
 
 CyD:0 CyD:DestinationIP "192.168.20.191" ;
     CyD:DestinationPort "51041" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "4.54404" ;
     CyD:FlowBytesReceived "159324" ;
     CyD:FlowBytesSent "11256331" ;
@@ -38,7 +38,7 @@ CyD:0 CyD:DestinationIP "192.168.20.191" ;
 
 CyD:1 CyD:DestinationIP "195.201.169.48" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "8.171041" ;
     CyD:FlowBytesReceived "11936" ;
     CyD:FlowBytesSent "930" ;
@@ -74,7 +74,7 @@ CyD:1 CyD:DestinationIP "195.201.169.48" ;
 
 CyD:2 CyD:DestinationIP "96.17.115.57" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "True" ;
+    CyD:DoH "1" ;
     CyD:Duration "0.033776" ;
     CyD:FlowBytesReceived "138" ;
     CyD:FlowBytesSent "162" ;
@@ -110,7 +110,7 @@ CyD:2 CyD:DestinationIP "96.17.115.57" ;
 
 CyD:3 CyD:DestinationIP "96.114.14.140" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "0.060723" ;
     CyD:FlowBytesReceived "120" ;
     CyD:FlowBytesSent "108" ;
@@ -146,7 +146,7 @@ CyD:3 CyD:DestinationIP "96.114.14.140" ;
 
 CyD:4 CyD:DestinationIP "23.78.199.198" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "0.019545" ;
     CyD:FlowBytesReceived "66" ;
     CyD:FlowBytesSent "55" ;
@@ -182,7 +182,7 @@ CyD:4 CyD:DestinationIP "23.78.199.198" ;
 
 CyD:5 CyD:DestinationIP "66.218.84.45" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "0.02958" ;
     CyD:FlowBytesReceived "60" ;
     CyD:FlowBytesSent "55" ;
@@ -218,7 +218,7 @@ CyD:5 CyD:DestinationIP "66.218.84.45" ;
 
 CyD:6 CyD:DestinationIP "151.101.124.237" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "True" ;
+    CyD:DoH "1" ;
     CyD:Duration "0.025021" ;
     CyD:FlowBytesReceived "66" ;
     CyD:FlowBytesSent "55" ;
@@ -254,7 +254,7 @@ CyD:6 CyD:DestinationIP "151.101.124.237" ;
 
 CyD:7 CyD:DestinationIP "151.101.124.237" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "0.025077" ;
     CyD:FlowBytesReceived "66" ;
     CyD:FlowBytesSent "55" ;
@@ -290,7 +290,7 @@ CyD:7 CyD:DestinationIP "151.101.124.237" ;
 
 CyD:8 CyD:DestinationIP "104.244.42.195" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "False" ;
+    CyD:DoH "0" ;
     CyD:Duration "0.044585" ;
     CyD:FlowBytesReceived "66" ;
     CyD:FlowBytesSent "55" ;
@@ -326,7 +326,7 @@ CyD:8 CyD:DestinationIP "104.244.42.195" ;
 
 CyD:9 CyD:DestinationIP "151.101.124.84" ;
     CyD:DestinationPort "443" ;
-    CyD:DoH "True" ;
+    CyD:DoH "1" ;
     CyD:Duration "0.02509" ;
     CyD:FlowBytesReceived "66" ;
     CyD:FlowBytesSent "55" ;

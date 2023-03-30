@@ -1,80 +1,145 @@
+import requests
 from django.shortcuts import render
-from .models import Triple
-from .forms import TripleForm, rdf_queryForm
-from django.views.generic import View,TemplateView
-from rest_framework.decorators import api_view
-from SPARQLWrapper import SPARQLWrapper, TURTLE, RDF
+
+from .forms import DoHTripleForm, KDDTripleForm
+
+from rdflib import Graph as RDFGraph
+from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
+from pyvis.network import Network
 # Create your views here.
 
-class MainGraphView(TemplateView):
-      template_name='generatedgraphs/main.htmll'
 
 
 def index(request):
         return render(request,'templates/triples/index.html')
 
-# def form_name_view(request):
-#         form=TripleForm() #instance of a form
-#         checked = False
-#         graph=""
-#         if request.method == 'POST':
-#             form= TripleForm(request.POST)
-#             if form.is_valid():
-#                 print("validated data")
-#                 if form.cleaned_data['subject'] == "":
-#                       form.cleaned_data['subject']=None
-#                 if form.cleaned_data['predicat'] == "None":
-#                       form.cleaned_data['predicat']=None
-#                 if form.cleaned_data['objectV'] == "":
-#                       form.cleaned_data['objectV']=None
-#                 print("subject:", form.cleaned_data['subject'])
-#                 print("predicate:", form.cleaned_data['predicat'])
-#                 print("objectV:", form.cleaned_data['objectV'])
+
+
+#****************************************** DNS ******************************************************************
+
+def DoHform(request):
+      
+      form=DoHTripleForm()
+      found = False
+      graph=""
+      JSONArray=[]
+        
+      if request.method == 'POST':
+            form= DoHTripleForm(request.POST)
+            if form.is_valid():
+                  print("validated data")
+                  if form.cleaned_data['subject'] == "":
+                      form.cleaned_data['subject']="None"
+                      
+                  sub = form.cleaned_data['subject']      
+                      
+                  if form.cleaned_data['predicat'] == "None":
+                      form.cleaned_data['predicat']="None"
                 
-#                 graph=gfunc.get_graph(form.cleaned_data['subject'], form.cleaned_data['predicat'], form.cleaned_data['objectV'])
-#                 checked = True 
+                  pre = form.cleaned_data['predicat']      
+                      
+                  if form.cleaned_data['objectV'] == "":
+                      form.cleaned_data['objectV']="None"
+                 
+                  obj = form.cleaned_data['objectV']      
+                      
+                  print("subject:", sub)
+                  print("predicate:", pre)
+                  print("objectV:", obj)
                 
-            
-            
+                  print(f"http://localhost:8000/api/get/CONSTRUCT/DNS/{sub}/{pre}/{obj}")
+                
+                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/DNS/{sub}/{pre}/{obj}")
+                  if RESULT.status_code == 200:
+                      found = True 
+                      graph=RESULT.json()
+                      
+                      #Retreiving data as JSON objects array
+                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/DNS/{sub}/{pre}/{obj}").json()
+                      
+                      
+                      
+                      
+                      
+                      
+                      #Visualizing the graph produced
+                      temporary = RDFGraph()
+                      temporary.parse(data=graph)
+                      G = rdflib_to_networkx_graph(temporary)
+                      net = Network(height="750px", width="100%", font_color="black")
+                      net.from_nx(G)
+                      net.write_html("templates\\generatedgraphs\\DoHtemp.html", local=False )
+                                
+                
+      return render(request,'templates/triples/DoHform.html',{'form':form, 'found': found,'JSONArray':JSONArray})
 
-#         return render(request,'templates/triples/formpage.html',{'form':form, 'checked': checked,'graph':graph }) #request,pass in th page i want to show,pass in the context dictionary: we'll give it the key form and we'll pass in that actual form object 
-        
-#         subject = gfunc.validator(form.cleaned_data['subject'])
-#         predicat = gfunc.validator(form.cleaned_data['predicat'])
-#         objectV = gfunc.object_validator(form.cleaned_data['objectV'])
-        
-#         main = SPARQLWrapper("our oracle endpoint")
-#         main.setReturnFormat(TURTLE)
-        
-#         main.setQuerry(f"""
-#                        PREFIX ex: <http://example.org/>
-#                        CONSTRUCT ?subject ?predicat ?objectV
-#                        WHERE {{
-#                              ?subject ex:{predicat} ?objectV 
-#                        }}
-#                        """)
-#         main.queryAndConvert()
-        
+
+
+
+
+
+
+def DoHgraph(r):
+      return render(r,'templates/generatedgraphs/DoHtemp.html')
+
+
+#****************************************** NSLKDD ******************************************************************
+
+def KDDform(request):
       
-      
+      form=KDDTripleForm() #instance of a form
+      found = False
+      graph=""
+      JSONArray=[]
+        
+      if request.method == 'POST':
+            form= KDDTripleForm(request.POST)
+            if form.is_valid():
+                  print("validated data")
+                  if form.cleaned_data['subject'] == "":
+                      form.cleaned_data['subject']="None"
+                      
+                  sub = form.cleaned_data['subject']      
+                      
+                  if form.cleaned_data['predicat'] == "None":
+                      form.cleaned_data['predicat']="None"
+                
+                  pre = form.cleaned_data['predicat']      
+                      
+                  if form.cleaned_data['objectV'] == "":
+                      form.cleaned_data['objectV']="None"
+                 
+                  obj = form.cleaned_data['objectV']      
+                      
+                  print("subject:", sub)
+                  print("predicate:", pre)
+                  print("objectV:", obj)
+                
+                  print(f"http://localhost:8000/api/get/CONSTRUCT/NSLKDD/{sub}/{pre}/{obj}")
+                
+                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/NSLKDD/{sub}/{pre}/{obj}")
+                  if RESULT.status_code == 200:
+                      found = True 
+                      graph=RESULT.json()
+                      
+                      #Retreiving data as JSON objects array
+                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/NSLKDD/{sub}/{pre}/{obj}").json()
+                      
+                      
+                      
+                      
+                      
+                      
+                      #Visualizing the graph produced
+                      temporary = RDFGraph()
+                      temporary.parse(data=graph)
+                      G = rdflib_to_networkx_graph(temporary)
+                      net = Network(height="750px", width="100%", font_color="black")
+                      net.from_nx(G)
+                      net.write_html("templates\\generatedgraphs\\KDDtemp.html", local=False )
+                                
+                
+      return render(request,'templates/triples/KDDform.html',{'form':form, 'found': found,'JSONArray':JSONArray})
 
-# def render_graph(r):
-#       return render(r, 'templates/generatedgraphs/temp.html')
-
-
-# def Sparql_form_view(request):
-#       sent = False
-#       form = rdf_queryForm()
-#       text=""
-#       if request.method == 'POST':
-#             form = rdf_queryForm(request.POST)
-#             if form.is_valid():
-#                   sent=True
-#                   text = form.cleaned_data["sparql_query"]
-#                   #awaiting the creation of sparql queryfunctions
-#       return render(request, 'templates/triples/sparqlpage.html', {"sparqlform": form ,'query': text, 'sent': sent})
-
-
-def render_main(r):
-      return render(r, "static/rdf/main.ttl", content_type='text/turtle')
-      
+def KDDgraph(r):
+      return render(r,'templates/generatedgraphs/KDDtemp.html')

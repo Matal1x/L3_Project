@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
-class Triple(models.Model):
+class DoHTriple(models.Model):
     class Predicat(models.TextChoices):
         All = None, _("All")
         SourceIP = 'SourceIP', _('Source IP') 
@@ -46,8 +46,26 @@ class Triple(models.Model):
     
     def __str__(self) -> str:
         return f"{self.subject}, {self.predicat}, {self.objectV}"
-
-
-
-class rdf_query(models.Model):
-    sparql_query=models.TextField(max_length=1000, null=False)
+    
+    
+class KDDTriple(models.Model):
+    class Predicat(models.TextChoices):
+        All = None, _("All")
+        duration='duration', _('Duration')
+        protocol_type= 'protocol_type', _('Protocol Type')
+        service= 'service', _('Service')
+        flag= 'flag', _('flag')
+        src_bytes= 'src_bytes', _("Src Bytes")
+        dst_bytes= 'dst_bytes', _('Dst bytes')
+        count= 'count', _('Count')
+        srv_count= 'srv_count', _('Srv Count')
+        dst_host_count= 'dst_host_count', _("dst_host_count")
+        dst_host_srv_count= 'dst_host_srv_count', _('Dst Host Srv Count')
+        dst_host_same_src_port_rate= 'dst_host_same_src_port_rate', _('Dst Host Same Src Port Rate')
+        dst_host_srv_diff_host_rate= 'dst_host_srv_diff_host_rate', _('Dst Host Srv Diff Host Rate')
+        dst_host_srv_rerror_rate= 'dst_host_srv_rerror_rate', _('Dst Host Srv Rerror Rate')
+        CLASS = 'class', _('Class')
+    
+    subject = models.CharField(max_length=255, default=None,null=True, blank=False)
+    predicat = models.CharField(max_length=255, choices=Predicat.choices, default=None, null=True)
+    objectV = models.CharField(max_length=255, default=None,null=True,blank=False)

@@ -3,7 +3,6 @@ from py4j.java_gateway import JavaGateway
 import json
 
 endpoint = "http://localhost:5000"
-cy = Namespace("http://cybersecurity.org/DNS-over-HTTPS/")
 
 
 def None_affirmer(X):
@@ -12,7 +11,8 @@ def None_affirmer(X):
     else:
         return X
     
-def URI_Applyer_String(X):
+def URI_Applyer_String(X, graph):
+    cy = Namespace(f"http://cybersecurity.org/DataSet/{graph}/")
     if X is not None:
         return f"<{URIRef(cy+X)}>"
     
@@ -26,16 +26,16 @@ def object_adapter(X):
         return Literal(X)
     
 
-def triple_adapter( s,p,o ):
+def triple_adapter( s,p,o , cy):
     if s is None:
         s = "?s"
     else:
-        s = URI_Applyer_String(s)
+        s = URI_Applyer_String(s, cy)
 
     if p is None:
        p = "?p"
     else:
-       p = URI_Applyer_String(p)
+       p = URI_Applyer_String(p, cy)
 
     if o is None:
        o = "?o"
@@ -69,12 +69,12 @@ def SELECT_QUERY_JS(graph,s,p,o):
     else:
         tempO="?o"    
     
-    VALUES=f"VALUES ({tempS} {tempP} ) {{ ( {s} {p}) }}"
+    VALUES=f"VALUES ({tempS} {tempP} {tempO}) {{ ( {s} {p} {o}) }}"
     
     
     
     
-    resSelect = HandleStore.get(f"{endpoint}/Cybersecurity/{graph}",
+    resSelect = HandleStore.get(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                                 
                                 f""" 
                                 
@@ -82,7 +82,6 @@ def SELECT_QUERY_JS(graph,s,p,o):
                                 WHERE {{
                                     {VALUES}
                                     ?s ?p ?o.
-                                    ?s ?p {o} .
                                 }}
                                 ORDER BY ?s ?p
                                 """)
@@ -102,7 +101,7 @@ def ASK_QUERY(graph,s,p,o):
     HandleStore=gateway.entry_point.getHandleStore()
     
     
-    resAsk = HandleStore.get(f"{endpoint}/Cybersecurity/{graph}",
+    resAsk = HandleStore.get(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                              
                              f""" 
                              
@@ -116,13 +115,12 @@ def ASK_QUERY(graph,s,p,o):
 def CONSTRUCT_QUERY(graph,s,p,o):
     gateway = JavaGateway()
     HandleStore=gateway.entry_point.getHandleStore()
-    resConstruct = HandleStore.get(f"{endpoint}/Cybersecurity/{graph}",
+    resConstruct = HandleStore.get(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                                    
                                    f"""
                                    
                                    CONSTRUCT {{ {s} {p} {o} }} 
                                    WHERE {{ {s} {p} {o}. }}
-                                   ORDER BY {s} {p}
                                    """)
     
     md1 = resConstruct.getModel()
@@ -136,7 +134,7 @@ def INSERT_QUERY(graph,s,p,o):
     gateway = JavaGateway()
     HandleStore=gateway.entry_point.getHandleStore()
     
-    resInsert = HandleStore.put(f"{endpoint}/Cybersecurity/{graph}", 
+    resInsert = HandleStore.put(f"{endpoint}/Cybersecurity/DataSet/{graph}", 
                                 
                                 f"""
                                 
@@ -152,7 +150,7 @@ def DELETE_QUERY(graph,s,p,o):
     gateway = JavaGateway()
     HandleStore=gateway.entry_point.getHandleStore()
     
-    resDelete = HandleStore.put(f"{endpoint}/Cybersecurity/{graph}",
+    resDelete = HandleStore.put(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                                 
                                 f"""
                                 
@@ -170,7 +168,7 @@ def DELETE_INSERT_QUERY(graph,s,p,o):
     gateway = JavaGateway()
     HandleStore=gateway.entry_point.getHandleStore()
     
-    resDelIns= HandleStore.put(f"{endpoint}/Cybersecurity/{graph}",
+    resDelIns= HandleStore.put(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                                
                                f"""
                                
