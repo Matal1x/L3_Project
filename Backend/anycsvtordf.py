@@ -12,7 +12,7 @@ csvpath = input("Enter your csv file (ending with .csv): \n")
 if (not csvpath.endswith(".csv")):
     csvpath = csvpath + ".csv"
 
-sample = pd.read_csv(f'static\csv\{csvpath}', low_memory=False)
+sample = pd.read_csv(f'{csvpath}', low_memory=False)
 
 # Here we deal with spaces (" ") in the data. I replace them with "_" so that URI's become valid.
 sample = sample.replace(to_replace=" ", value="_", regex=True)
@@ -22,8 +22,8 @@ sample = sample.fillna("unknown")
 
 # We initialise an RDF graph variable
 g = RDFGraph()
-ex = Namespace("http://example.org/")
-g.bind("ex", ex)
+ex = Namespace("http://cybersecurity.org/DNS-over-HTTPS/")
+g.bind("CyD", ex)
 
 
 # We begin creating RDFs
@@ -44,7 +44,7 @@ g.remove((None, None, Literal("unknown")))
 rdfpath = input("Give your rdf file a name (ending with .ttl): \n")
 if (not rdfpath.endswith(".ttl")):
     rdfpath = rdfpath + ".ttl"
-g.serialize(format="turtle", destination=f'static\\rdf\\{rdfpath}')
+g.serialize(format="turtle", destination=f'{rdfpath}')
 print(g.serialize(format="turtle"))
 
 

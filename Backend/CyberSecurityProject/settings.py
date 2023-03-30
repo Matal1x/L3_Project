@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'triples',
     "rest_framework",
     "rest_framework.authtoken",
-    'GraphFunc',
     'api',
 ]
 

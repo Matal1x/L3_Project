@@ -22,8 +22,8 @@ urlpatterns = [
     path('', views.index, name='index'),#homepage
      
     path('admin/', admin.site.urls), #admin site
-    path('formpage/',views.form_name_view, name='form_name'),
-    path('graphrender/', views.render_graph, name="render_graph"),
+    # path('formpage/',views.form_name_view, name='form_name'),
+    # path('graphrender/', views.render_graph, name="render_graph"),
     path('api/', include('api.urls')),
     path('SPARQL/', include('triples.urls')),
     path('graph/', include('triples.urls')),
