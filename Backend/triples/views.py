@@ -7,6 +7,8 @@ from .forms import DoHTripleForm, KDDTripleForm
 from rdflib import Graph as RDFGraph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
 from pyvis.network import Network
+
+import random
 # Create your views here.
 
 
@@ -72,12 +74,40 @@ def Myform(request, dataset):
                       
                       
                       
+                      
+                      
                       #Visualizing the graph produced
-                      temporary = RDFGraph()
-                      temporary.parse(data=graph)
-                      G = rdflib_to_networkx_graph(temporary)
-                      net = Network(height="750px", width="100%", font_color="black")
-                      net.from_nx(G)
+
+
+                      net = Network(height="750px", width="100%", font_color="black", directed =True)
+                      for r in JSONArray:
+                            try:
+                                  
+                                  net.add_node(r['s'], r['s'], color='#00bf1e')
+                                  net.add_node(r['o'], r['o'], color='#dd4b39')
+                                  net.add_edge(r['s'], r['o'], label=r['p'] ,title=r['p'])
+                            except:
+                                  print("error while trying to create triple")
+                      
+                      
+                      
+                      net.add_node('ASLAOUI', 'ASLAOUI', color='#bdb7ab')
+                      net.add_node('ABBAS', 'ABBAS', color='#ffc0cb')
+                      net.add_node('MOKADDEM', "MOKADDEM", color='#0000FF')
+                      
+                      net.add_edge('ASLAOUI', 'ABBAS')
+                      net.add_edge('ASLAOUI', 'MOKADDEM')
+                      
+                      net.add_edge("ABBAS", "ASLAOUI")
+                      net.add_edge("ABBAS", "MOKADDEM")
+                      
+                      net.add_edge("MOKADDEM", "ASLAOUI")
+                      net.add_edge("MOKADDEM", "ABBAS")
+                      
+                      
+                      
+                      
+                      net.show_buttons(filter_=['physics'])
                       net.write_html("templates\\generatedgraphs\\temp.html", local=False )
                                 
                 
