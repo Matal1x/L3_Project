@@ -9,7 +9,7 @@
 <body>
     
     <div class="container">
-        <h2>You're Inspecting NSLKDD DATASET</h2>
+        <h2>You're Inspecting {{data_set}} DATASET</h2>
         <p></p>
          <form method="POST">
             {{ form.as_p }}
@@ -33,7 +33,7 @@
             {% endfor %}
 
         </table>
-        <a href="{% url 'triples:KDDgraph' %}"> SEE GRAAAAAPh</a>
+        <a href="{% url 'triples:graph' %}"> SEE GRAAAAAPh</a>
         {% endif %}
          
     </div>

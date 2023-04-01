@@ -1,5 +1,6 @@
 import requests
 from django.shortcuts import render
+from django.http import HttpResponseNotFound
 
 from .forms import DoHTripleForm, KDDTripleForm
 
@@ -13,88 +14,34 @@ from pyvis.network import Network
 def index(request):
         return render(request,'templates/triples/index.html')
 
-
-
-#****************************************** DNS ******************************************************************
-
-def DoHform(request):
+def Myform(request, dataset):
+      if dataset != "NSLKDD" and dataset != "DNS":
+            return HttpResponseNotFound("No such DataSet available")
       
-      form=DoHTripleForm()
       found = False
       graph=""
       JSONArray=[]
         
+      if dataset=="NSLKDD":
+          form=KDDTripleForm()
+      elif dataset =="DNS":
+          form=DoHTripleForm()  
+          
       if request.method == 'POST':
-            form= DoHTripleForm(request.POST)
+            
+            if dataset=="NSLKDD":
+                  form=KDDTripleForm(request.POST)
+            elif dataset =="DNS":
+                  form=DoHTripleForm(request.POST)  
+            
+            
+            
             if form.is_valid():
                   print("validated data")
                   if form.cleaned_data['subject'] == "":
                       form.cleaned_data['subject']="None"
-                      
-                  sub = form.cleaned_data['subject']      
-                      
-                  if form.cleaned_data['predicat'] == "None":
-                      form.cleaned_data['predicat']="None"
-                
-                  pre = form.cleaned_data['predicat']      
-                      
-                  obj = "None"       
-                      
-                  print("subject:", sub)
-                  print("predicate:", pre)
-                  print("objectV:", obj)
-                
-                  print(f"http://localhost:8000/api/get/CONSTRUCT/DNS/{sub}/{pre}/{obj}")
-                
-                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/DNS/{sub}/{pre}/{obj}")
-                  if RESULT.status_code == 200:
-                      found = True 
-                      graph=RESULT.json()
-                      
-                      #Retreiving data as JSON objects array
-                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/DNS/{sub}/{pre}/{obj}").json()
-                      
-                      
-                      
-                      
-                      
-                      
-                      #Visualizing the graph produced
-                      temporary = RDFGraph()
-                      temporary.parse(data=graph)
-                      G = rdflib_to_networkx_graph(temporary)
-                      net = Network(height="750px", width="100%", font_color="black")
-                      net.from_nx(G)
-                      net.write_html("templates\\generatedgraphs\\DoHtemp.html", local=False )
-                                
-                
-      return render(request,'templates/triples/DoHform.html',{'form':form, 'found': found,'JSONArray':JSONArray})
-
-
-
-
-
-
-
-def DoHgraph(r):
-      return render(r,'templates/generatedgraphs/DoHtemp.html')
-
-
-#****************************************** NSLKDD ******************************************************************
-
-def KDDform(request):
-      
-      form=KDDTripleForm() #instance of a form
-      found = False
-      graph=""
-      JSONArray=[]
-        
-      if request.method == 'POST':
-            form= KDDTripleForm(request.POST)
-            if form.is_valid():
-                  print("validated data")
-                  if form.cleaned_data['subject'] == "":
-                      form.cleaned_data['subject']="None"
+                  else:
+                        form.cleaned_data['subject'] = "Attack"+form.cleaned_data['subject']
                       
                   sub = form.cleaned_data['subject']      
                       
@@ -110,15 +57,15 @@ def KDDform(request):
                   print("predicate:", pre)
                   print("objectV:", obj)
                 
-                  print(f"http://localhost:8000/api/get/CONSTRUCT/NSLKDD/{sub}/{pre}/{obj}")
+                  print(f"http://localhost:8000/api/get/CONSTRUCT/{dataset}/{sub}/{pre}/{obj}")
                 
-                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/NSLKDD/{sub}/{pre}/{obj}")
+                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/{dataset}/{sub}/{pre}/{obj}")
                   if RESULT.status_code == 200:
                       found = True 
                       graph=RESULT.json()
                       
                       #Retreiving data as JSON objects array
-                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/NSLKDD/{sub}/{pre}/{obj}").json()
+                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/{dataset}/{sub}/{pre}/{obj}").json()
                       
                       
                       
@@ -131,10 +78,10 @@ def KDDform(request):
                       G = rdflib_to_networkx_graph(temporary)
                       net = Network(height="750px", width="100%", font_color="black")
                       net.from_nx(G)
-                      net.write_html("templates\\generatedgraphs\\KDDtemp.html", local=False )
+                      net.write_html("templates\\generatedgraphs\\temp.html", local=False )
                                 
                 
-      return render(request,'templates/triples/KDDform.html',{'form':form, 'found': found,'JSONArray':JSONArray})
+      return render(request,'templates/triples/form.html',{'form':form, 'found': found, 'JSONArray':JSONArray, "data_set": dataset})
 
-def KDDgraph(r):
-      return render(r,'templates/generatedgraphs/KDDtemp.html')
+def graph(r):
+      return render(r,'templates/generatedgraphs/temp.html')

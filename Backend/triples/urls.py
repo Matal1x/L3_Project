@@ -5,9 +5,6 @@ from . import views
 app_name="triples"
 
 urlpatterns=[
-    path('DoHform/', views.DoHform, name="DoHform"),
-    path("DoHgraph/", views.DoHgraph, name="DoHgraph"),
-    
-    path("KDDform/", views.KDDform ,name="KDDform"),
-    path("KDDgraph/", views.KDDgraph, name="KDDgraph"),
+    path("form/<slug:dataset>/", views.Myform ,name="form"),
+    path("graph/", views.graph, name="graph"),
 ]
