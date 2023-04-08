@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     'api',
+    'materializecssform',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

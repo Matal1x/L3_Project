@@ -17,13 +17,14 @@ def index(request):
         return render(request,'templates/triples/index.html')
 
 def Myform(request, dataset):
+      
       if dataset != "NSLKDD" and dataset != "DNS":
             return HttpResponseNotFound("No such DataSet available")
       
       found = False
       graph=""
       JSONArray=[]
-        
+      
       if dataset=="NSLKDD":
           form=KDDTripleForm()
       elif dataset =="DNS":
@@ -40,10 +41,11 @@ def Myform(request, dataset):
             
             if form.is_valid():
                   print("validated data")
-                  if form.cleaned_data['subject'] == "":
+                  if form.cleaned_data['subject'] == "" :
                       form.cleaned_data['subject']="None"
                   else:
                         form.cleaned_data['subject'] = "Attack"+form.cleaned_data['subject']
+                        
                       
                   sub = form.cleaned_data['subject']      
                       

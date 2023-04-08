@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class DoHTriple(models.Model):
@@ -40,7 +41,7 @@ class DoHTriple(models.Model):
         ResponseTimeTimeSkewFromMode= 'ResponseTimeTimeSkewFromMode', _('Response Time Time Skew From Mode')
         ResponseTimeTimeCoefficientofVariation= 'ResponseTimeTimeCoefficientofVariation', _('Response Time Time Coefficient of Variation')
         DoH = 'DoH', _('DoH')
-    subject = models.CharField(max_length=255, default=None,null=True, blank=False)
+    subject = models.IntegerField( max_length=255,default=0,null=True, blank=False,validators = [MinValueValidator(0)])
     predicat = models.CharField(max_length=255, choices=Predicat.choices, default=None, null=True)
     objectV = models.CharField(max_length=255, default=None,null=True,blank=False)
     
@@ -66,6 +67,6 @@ class KDDTriple(models.Model):
         dst_host_srv_rerror_rate= 'dst_host_srv_rerror_rate', _('Dst Host Srv Rerror Rate')
         CLASS = 'class', _('Class')
     
-    subject = models.CharField(max_length=255, default=None,null=True, blank=False)
+    subject = models.IntegerField( max_length=255,default=0,null=True, blank=False,validators = [MinValueValidator(0)])
     predicat = models.CharField(max_length=255, choices=Predicat.choices, default=None, null=True)
-    objectV = models.CharField(max_length=255, default=None,null=True,blank=False)
+    objectV = models.CharField(max_length=255, default=0,null=True,blank=False)

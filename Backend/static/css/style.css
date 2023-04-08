@@ -6,7 +6,7 @@
 }
 /*Cover*/
 
-header{
+header {
     width: 100%;
     height: 100vh;
     background-position: bottom;
@@ -17,10 +17,6 @@ header{
     align-items: flex-start;
 }
 
-a{
-    text-decoration: none;
-    
-}
 .header-content{
     margin-top: 190px;
     margin-right: 690px;
@@ -41,33 +37,29 @@ a{
     margin-bottom: 30px;
 }
 
-    
+.header-content a{
+    text-decoration: none;
+}
 
 .content-btn{
     display: inline-block;
     font-size: 16px;
     padding: 10px 10px;
     margin-left:70px;
-    background: rgb(165, 177, 255);
-    color: rgb(71, 48, 78);
+    background: rgba(165, 177, 255,.80);
+    color: rgb(30, 6, 38);
     font-weight: bold;
     transition: ease .40s;
     border-radius: 4px;
     border: none;
     font-size: 18px;
     font-weight: 500;
-    
-
+    text-decoration: none;
 }
 .content-btn:hover{
-    box-shadow: 5px 10px 30px rgba(213, 184, 255, 0.05);
-    background: #ffffffa7;
-    color: rgb(62, 56, 62);
+    background: rgba(165, 177, 255,.68);
+    
 }
-
-
-
-
 
 /*Navbar*/
 .navbar{
@@ -79,16 +71,18 @@ a{
     width: 100%;
     z-index: 1000;
     justify-content: space-between;
-    padding: 40px 10%;
+    padding: 50px 10%;
     transition: ease .40s;
     color: rgb(165, 177, 255);
     margin-bottom: 0px;
+
 }
 .logo{
     font-size: 35px;
     font-weight: 600;
     letter-spacing: 5px;
-    color: rgb(165, 177, 255);
+    color: rgb(234, 255, 116);
+    text-decoration: none;
 }
 .navlinks{
     display: flex;
@@ -96,31 +90,46 @@ a{
 }
 .navlinks a{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 5px 5px;
     border-radius: 4px;
     transition: ease .40s;
-    color: rgb(165, 177, 255);
+    color: rgb(234, 255, 116);
+    text-decoration: none;
 }
+
+.navlinks a:hover{
+    background: rgba(234, 255, 116,0.15);                 /*rgb(62, 56, 62); good font colo  rgb(246, 240, 246)r*/
+    transition: .5s;
+    padding: 8px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
 .navlinks .content-btn{
-    color: rgb(161, 90, 99);
-    font-weight:bold ;
-    background-color: rgb(185, 177, 255);
-    padding: 8px 7px;
+    color: white;
+    font-weight:500 ;
+    background-color: rgba(234, 255, 116,  0.50);
+    padding: 10px 10px;
     margin-left: 7px;
 }
-.navlinks a:hover{
-    background: rgb(165, 177, 255);                 /*rgb(62, 56, 62); good font colo  rgb(246, 240, 246)r*/
-    color: black;
-    padding: 6px 10px;
-    box-shadow: 5px 10px 30px rgba(213, 184, 255, 0.25);
+
+.navlinks .content-btn:hover{
+    background: rgba(234, 255, 116,  0.40);                 /*rgb(62, 56, 62); good font colo  rgb(246, 240, 246)r*/
+    color: white; 
+    transition: .5s;
+    padding: 10px 10px;
     border-radius: 4px;
+    text-decoration: none;
 }
+
 .navlinks li{
+    text-decoration: none;
     margin: 0 30px;
 }
 ul{
     list-style: none;
+    text-decoration: none;
 }
 
 
@@ -242,80 +251,58 @@ ul{
 section{
     height: 100%;
 }
-/*footer*/
-.footer{
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-    background-color: #F8F8F8;
-}
 
-.footer h5{
-    margin-bottom: 25px;
-    margin-top: 20px;
-    font-weight: 600;
-}
+/*formpage*/
 
-.socialmedia-icons .fa{
-    color: #ff1100;
-    margin: 0 13px;
-    cursor: pointer;
-    text-decoration: none;
-}
-/*-------Contact Us-----*/
-
-.container{
-    width: 90%;
-    margin: 0 auto;
-    
-}
-
-.contact-us{
-    height: 100vh;
-    width: 100%; 
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))/*,url(banner-image2.jpg)*/;
+/*Contact Us
+.formpage{
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))/*url(banner-image2.jpg);
     background-size: cover;
-    background-position: center;
-    
+    background-position: center center;
+    height: 1000%;
+    width: 100%; 
 }
 
-.login{
+.wrapper{
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
 }
 
-.form{
+.form-data{
     position: relative;
     background: rgba(61, 89, 228, 0);
     max-width: 360px;
-    margin: 0 auto 100px;
+    font-size: 16px;
+    margin: 0 auto ;
     padding: 45px;
+    margin-top: -10px;
     text-align: center;
 }
 
-.form input{
-    outline: 1;
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
+label{
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(11, 11, 62); 
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
-.form button{
-    text-transform: uppercase;
-    background: #e0e3f8;
-    width: 80%;
-    padding: 15px;
-    font-size: 14px;
-    border: 0;
-    color: rgb(32, 91, 131);
-    cursor: pointer;
-    font-weight: 480;
+.form-data h2{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(11, 11, 62);
+    margin-bottom: 50px;
 }
 
-.form button:hover,.form button:active{
-    background: #bdb4e3;
-}
 
+::-webkit-input-placeholder {
+    color: rgba(25, 23, 23, 0.5);
+ }
+
+.label-class{
+    color: rgb(212, 91, 26);
+    font-weight: 600;
+    font-size: 16px;
+} 
+ */
