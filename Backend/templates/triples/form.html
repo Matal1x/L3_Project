@@ -7,25 +7,26 @@
     <meta charset="UTF-8">
     <title>Triple</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&display=swap" rel="stylesheet">
     {%block css%}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
     {% endblock css%}
-    <link rel='stylesheet' href="{% static 'css/form.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/formp.css' %}" type='text/css'>
     
 </head>
-<body style="background-image: url({% static 'img/new_blue.jpg' %});">
+<body style="background-image: url({% static 'img/form.jpg' %});">
     
-    <div class="navbar" style="margin-top: -50px;">
+    <div class="navigbar" style="margin-top: -50px;">
         <h1><a href="http://127.0.0.1:8000/" class="logo">MX</a></h1>
         <ul class="navlinks">
-            <li><a href="#">Home</a></li>
+            <li><a href="http://127.0.0.1:8000/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Graphs</a></li>
+            <li><a href="http://127.0.0.1:8000/#graph">Graphs</a></li>
             <li ><a class="content-btn" href="#" style="text-decoration: none;" >contact us</a></li>
         </ul>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" >
         <div class="formbox">
             <h2>{{data_set}} DATASET</h2>
                 <p></p>
@@ -40,6 +41,8 @@
         
         
             {% if found %}
+            <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small"> View Graph</a>
+            {{ form.as_table}}
                 <table>
                     <tr>
                         <th>Subject</th>
@@ -55,7 +58,7 @@
                     {% endfor %}
         
                 </table>
-                <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small"> View Graph</a>
+                
                 {% endif %}
 
                 {% block javascript %}
@@ -99,96 +102,6 @@
 
 
 
-
-
-
-
-    
-<!------form 
-
-<section class="contact-us" style="background-image: url({% static 'img/new_blue.jpg' %});">
-<div class="wrapper">
-    <div class="form">
-        <h2>You're Inspecting {{data_set}} DATASET</h2>
-                <p></p>
-        <form method="POST">
-            <div class="container">
-                
-                    {{ form.as_p }}
-                    {% csrf_token %}
-                    <input type="submit" value="submit" id="post">     
-                 </form>
-                
-                {% if found %}
-                <table>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Predicat</th>
-                        <th>Object</th>
-                    </tr>
-                    {% for r in JSONArray %}
-                    <tr>
-                        <td>{{r.s}}</td>
-                        <td>{{r.p}}</td>
-                        <td>{{r.o}}</td>
-                    </tr>
-                    {% endfor %}
-        
-                </table>
-                <a href="{% url 'triples:graph' %}"> SEE GRAAAAAPh</a>
-                {% endif %}
-                 
-            </div>
-    </div>
-</div>
-</section>
-   ------>
-<!--the good code if all fails
-<section class="formpage" style="background-image: url({% static 'img/new_blue.jpg' %});">
-    <div class="wrapper">
-        <div class="form-data">
-            <h2>{{data_set}} DATASET</h2>
-                <p></p>
-            <form method="POST">
-            <div class="container">
-                
-                    {{ form.as_p}}
-                    {% csrf_token %}
-                
-                    <input type="submit" class="waves-effect waves light btn-small " value="submit" id="post">    
-            </form>
-        
-        
-            {% if found %}
-                <table>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Predicat</th>
-                        <th>Object</th>
-                    </tr>
-                    {% for r in JSONArray %}
-                    <tr>
-                        <td>{{r.s}}</td>
-                        <td>{{r.p}}</td>
-                        <td>{{r.o}}</td>
-                    </tr>
-                    {% endfor %}
-        
-                </table>
-                <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small"> View Graph</a>
-                {% endif %}
-
-
-               
-
-        </div>
-        
-        
-    </div>
-</section>
-
-
--->
 
 
 

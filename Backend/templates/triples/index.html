@@ -6,30 +6,37 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel='stylesheet' href="{% static 'css/style.css' %}" type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
+<link rel='stylesheet' href="{% static 'css/styling.css' %}" type='text/css'>
+    
     </head>
 <body>
     <div class="navbar">
         <h1><a href="http://127.0.0.1:8000/" class="logo">MX</a></h1>
         <ul class="navlinks">
-            <li><a href="#">Home</a></li>
+            <li><a href="http://127.0.0.1:8000/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Graphs</a></li>
-            <li ><a class="content-btn" href="#" style="text-decoration: none;" >contact us</a></li>
+            <li><a href="#graph">Graphs</a></li>
+            <li ><a class="content-btn" href="#">contact us</a></li>
         </ul>
     </div>
     <header style="background-image: url({% static 'img/cyber.jpg' %});">
         <div class="header-content">
             <h1>Cyber Security <br> Knowledge Graphs  </h1>
             <p>A giant leap for cyber security  </p>
-            <a href="#" class="content-btn" style="text-decoration: none;">Get Graph</a>
+            <a href="#graph" class="content-btn" >Get Graph</a>
         </div>
 
     </header>
-    
 
     <section>
+
+    </section>
+    
+
+    <section id="graph" >
         <div class="graph">
             <div class="gtitle">
                 <h1>Get Your Graph!</h1>
@@ -43,7 +50,7 @@
                             <div class="inf">
                                 <h1>NSL-KDD Dataset</h1>
                                 <p>The NSL-KDD is a dataset that concerns ....</p>
-                                <button type="button" class="content-btn" ><a href="http://127.0.0.1:8000/data/form/NSLKDD/ " style="text-decoration: none; color: black; ">Get Graph!</a></button>
+                                <button type="button" class="content-btn" ><a href="http://127.0.0.1:8000/data/form/NSLKDD/ " style="text-decoration: none; color: rgb(30, 6, 38); ">Get Graph!</a></button>
 
 
                             </div>
@@ -59,28 +66,62 @@
                             <div class="inf">
                                 <h1>DNS Dataset</h1>
                                 <p>The DNS is a dataset that concerns ....</p>
-                                <button type="button" class="content-btn"  ><a href="http://127.0.0.1:8000/data/form/DNS/" style="text-decoration: none; color: black;" >Get Graph!</a></button>
+                                <button type="button" class="content-btn"  ><a href="http://127.0.0.1:8000/data/form/DNS/" style="text-decoration: none; color: rgb(30, 6, 38);" >Get Graph!</a></button>
                                 
                 
                             </div>
                         </div>
                     </div>
                     </div>
-                
+                    <div class="col">
+                        <!--DNS dataset -->
+                        <div class="outline">
+                            <div class="card">
+                                <img src="{%static 'img\admin1.jpg' %}" alt="Oops! There Was A Problem">
+                                <div class="inf">
+                                    <h1>Admin</h1>
+                                    <br>
+                                    <p>Being an admin gives you the ability to connect and change your desired graph.
+                                        <br>
+                                        using the authorised token, you'll be able to run the provided command using your cmd!
+                                    </p>
+                                    <button type="button" class="content-btn" onclick="openPopup()" ><a href="#" style="text-decoration: none; color: rgb(30, 6, 38);" >Get Command!</a></button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        </div>
+                        
             </div>
+            
         </div>
+        <div class="container">             
+            <div class="popup" id="popup">
+                <img src="{%static 'img\keycard.png' %}" alt="Oops! There Was A Problem">
+                <h2>Here's your command</h2>
+                <p>command...</p>
+                <h2>Enjoy!</h2>
+                <button type="button" onclick="closePopup()">OK</button>
+            </div>
     </section>
     
-    <section class="footer">
-        <h5>See Also</h5>
-            <div class="socialmedia-icons">
-                <a href="https://www.instagram.com/" target="#"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.facebook.com/" target="#"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.twitter.com/" target="#"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/" target="#"><i class="fa fa-linkedin"></i></a>
-            </div>
-    </section>
-   
+
+   <script>
+    let popup = document.getElementById("popup");
+
+    function openPopup(){
+        popup.classList.add("open-popup");
+    }
+
+    function closePopup(){
+        popup.classList.remove("open-popup");
+    }
+   </script>
 
 
 </body>
