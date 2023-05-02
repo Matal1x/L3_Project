@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
     {% endblock css%}
-    <link rel='stylesheet' href="{% static 'css/formp.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/datasetform.css' %}" type='text/css'>
     
 </head>
 <body style="background-image: url({% static 'img/form.jpg' %});">
     
     <div class="navigbar" style="margin-top: -50px;">
-        <h1><a href="http://127.0.0.1:8000/" class="logo">MX</a></h1>
+        <h1><a href="http://127.0.0.1:8000/" class="logo">MATALIX</a></h1>
         <ul class="navlinks">
             <li><a href="http://127.0.0.1:8000/">Home</a></li>
             <li><a href="#">About</a></li>
@@ -28,21 +28,20 @@
     </div>
     <div class="wrapper" >
         <div class="formbox">
-            <h2>{{data_set}} DATASET</h2>
-                <p></p>
+            
             <form method="POST">
             <div class="container">
-                
+                <h2>{{data_set}} DATASET</h2>
+                <p></p>
                     {{ form.as_p}}
                     {% csrf_token %}
                     
-                    <input type="submit" class="waves-effect waves light btn-small " value="submit" id="post">    
+                    <input type="submit" class="waves-effect waves light btn-small boomm" value="submit" id="post">    
             </form>
-        
+        </div>
         
             {% if found %}
-            <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small"> View Graph</a>
-            {{ form.as_table}}
+            <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small boom"> View Graph</a>
                 <table>
                     <tr>
                         <th>Subject</th>
@@ -59,7 +58,12 @@
         
                 </table>
                 
-                {% endif %}
+            {% endif %}
+
+            {% if notfound %}
+            <h3 class="error-message"> No result found</h3>
+            {% endif %}
+        
 
                 {% block javascript %}
                     <script
@@ -71,39 +75,19 @@
 
                     <script>
                     $(document).ready(function(){
-
-                    // Initialize materialize data picker
-                    $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+                    /*models.py form select feild*/
                     $('select').formSelect();
 
                     });
-                    /*models.py integer feild*/
-                    $(document).ready(function(){
-                        $('.text_type_number').attr('type', 'number');
-                     });
+                    
+                    
                     </script>
                 {% endblock javascript %}
+                
 
 
-</div>
         </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     
 </body>

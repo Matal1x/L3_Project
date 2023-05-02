@@ -10,7 +10,9 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url('img/nsl-kdd2.jpg') no-repeat;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
     padding-top: 180px;
     background-position: center;
@@ -283,4 +285,49 @@ ul{
 
 ul #select-options-bacff2ad-4168-dd08-2e79-4b69086e61eb{
     top:-450px !important;
+}
+
+form{
+    top:50px;
+    position:fixed;
+}
+
+
+
+.container{
+    margin:0 30px !important;
+}
+
+
+table {
+    margin-top:100px !important;
+    margin-left:-450px !important;
+}
+
+ul:not(.browser-default)>li {
+     color:red !important;
+}
+
+
+.waves-effect.waves.light.btn-small.boom{
+    padding:1px 110px;
+    margin-top:1050px;
+    background-color:cadetblue;
+}
+
+.waves-effect.waves.light.btn-small.boomm{
+    margin-left:60px;
+    margin-top:13px;
+}
+
+td, th {
+    padding: 15px 35px !important;
+    text-align: center !important;
+}
+
+h3 {
+    font-size:27px !important;
+    line-height: 110%;
+    margin: 25rem 0 1.168rem 3.6rem !important;
+    color:red !important;
 }

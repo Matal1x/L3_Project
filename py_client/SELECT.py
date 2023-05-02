@@ -15,7 +15,7 @@ import requests
     
 print("\n")
 
-endpoint1 = "http://localhost:8000/api/get/SELECT/DoH/None/None/None"
+endpoint1 = "http://localhost:8000/api/get/SELECT/DNS/Attack1/DoH/None/"
 result1 = requests.get(endpoint1).json()
 c=0 
 for r in result1:
