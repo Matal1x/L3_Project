@@ -10,6 +10,7 @@ class DoHTripleForm(forms.ModelForm):
         fields= [
             'subject',
             'predicat',
+            'objectV',
         ]
 class KDDTripleForm(forms.ModelForm):
     subject=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Attack N° (optional)"}))
@@ -17,7 +18,8 @@ class KDDTripleForm(forms.ModelForm):
         model=models.KDDTriple
         fields= [
             'subject',
-            'predicat'
+            'predicat',
+            'objectV',
         ]
 
 

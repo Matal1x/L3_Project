@@ -16,6 +16,7 @@ def api_get_SELECT_JSON(request, graph, subject, predicat, objectV, *args, **kwa
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
     (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
+    
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("no result found.", status=404)
     

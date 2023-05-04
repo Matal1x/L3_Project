@@ -53,11 +53,14 @@ def Myform(request, dataset):
                       
                   if form.cleaned_data['predicat'] == "None":
                       form.cleaned_data['predicat']="None"
+                      
+                  if form.cleaned_data['predicat'] == "":
+                      form.cleaned_data['predicat']="None"
                 
                   pre = form.cleaned_data['predicat']      
 
                  
-                  obj = "None"    
+                  obj = form.cleaned_data['objectV']     
                       
                   print("subject:", sub)
                   print("predicate:", pre)

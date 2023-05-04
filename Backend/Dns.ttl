@@ -2,7 +2,7 @@
 
 Cy:Attack0 Cy:DestinationIP "192.168.20.191" ;
     Cy:DestinationPort "51041" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "4.54404" ;
     Cy:FlowBytesReceived "159324" ;
     Cy:FlowBytesSent "11256331" ;
@@ -38,7 +38,7 @@ Cy:Attack0 Cy:DestinationIP "192.168.20.191" ;
 
 Cy:Attack1 Cy:DestinationIP "195.201.169.48" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "8.171041" ;
     Cy:FlowBytesReceived "11936" ;
     Cy:FlowBytesSent "930" ;
@@ -74,7 +74,7 @@ Cy:Attack1 Cy:DestinationIP "195.201.169.48" ;
 
 Cy:Attack2 Cy:DestinationIP "96.17.115.57" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "True" ;
+    Cy:DoH "1" ;
     Cy:Duration "0.033776" ;
     Cy:FlowBytesReceived "138" ;
     Cy:FlowBytesSent "162" ;
@@ -110,7 +110,7 @@ Cy:Attack2 Cy:DestinationIP "96.17.115.57" ;
 
 Cy:Attack3 Cy:DestinationIP "96.114.14.140" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "0.060723" ;
     Cy:FlowBytesReceived "120" ;
     Cy:FlowBytesSent "108" ;
@@ -146,7 +146,7 @@ Cy:Attack3 Cy:DestinationIP "96.114.14.140" ;
 
 Cy:Attack4 Cy:DestinationIP "23.78.199.198" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "0.019545" ;
     Cy:FlowBytesReceived "66" ;
     Cy:FlowBytesSent "55" ;
@@ -182,7 +182,7 @@ Cy:Attack4 Cy:DestinationIP "23.78.199.198" ;
 
 Cy:Attack5 Cy:DestinationIP "66.218.84.45" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "0.02958" ;
     Cy:FlowBytesReceived "60" ;
     Cy:FlowBytesSent "55" ;
@@ -218,7 +218,7 @@ Cy:Attack5 Cy:DestinationIP "66.218.84.45" ;
 
 Cy:Attack6 Cy:DestinationIP "151.101.124.237" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "True" ;
+    Cy:DoH "1" ;
     Cy:Duration "0.025021" ;
     Cy:FlowBytesReceived "66" ;
     Cy:FlowBytesSent "55" ;
@@ -254,7 +254,7 @@ Cy:Attack6 Cy:DestinationIP "151.101.124.237" ;
 
 Cy:Attack7 Cy:DestinationIP "151.101.124.237" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "0.025077" ;
     Cy:FlowBytesReceived "66" ;
     Cy:FlowBytesSent "55" ;
@@ -290,7 +290,7 @@ Cy:Attack7 Cy:DestinationIP "151.101.124.237" ;
 
 Cy:Attack8 Cy:DestinationIP "104.244.42.195" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "False" ;
+    Cy:DoH "0" ;
     Cy:Duration "0.044585" ;
     Cy:FlowBytesReceived "66" ;
     Cy:FlowBytesSent "55" ;
@@ -326,7 +326,7 @@ Cy:Attack8 Cy:DestinationIP "104.244.42.195" ;
 
 Cy:Attack9 Cy:DestinationIP "151.101.124.84" ;
     Cy:DestinationPort "443" ;
-    Cy:DoH "True" ;
+    Cy:DoH "1" ;
     Cy:Duration "0.02509" ;
     Cy:FlowBytesReceived "66" ;
     Cy:FlowBytesSent "55" ;

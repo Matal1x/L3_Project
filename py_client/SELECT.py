@@ -15,10 +15,11 @@ import requests
     
 print("\n")
 
-endpoint1 = "http://localhost:8000/api/get/SELECT/DNS/Attack1/DoH/None/"
-result1 = requests.get(endpoint1).json()
+endpoint1 = "http://localhost:8000/api/get/SELECT/DNS/Attack1/None/192.168.20.191/"
+endpoint2 = "http://localhost:8000/api/get/SELECT/NSLKDD/Attack1/None/0/"
+result = requests.get(endpoint1).json()
 c=0 
-for r in result1:
+for r in result:
     print("\nSUBJECT: " ,r["s"])
     print("PREDICAT: " ,r["p"])
     print("OBJECT: " ,r["o"])
