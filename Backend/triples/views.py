@@ -4,6 +4,7 @@ from django.http import HttpResponseNotFound
 
 from .forms import DoHTripleForm, KDDTripleForm
 
+
 from rdflib import Graph as RDFGraph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
 from pyvis.network import Network
@@ -22,6 +23,7 @@ def Myform(request, dataset):
             return HttpResponseNotFound("No such DataSet available")
       
       found = False
+      notfound = False
       graph=""
       JSONArray=[]
       
@@ -51,36 +53,27 @@ def Myform(request, dataset):
                       
                   if form.cleaned_data['predicat'] == "None":
                       form.cleaned_data['predicat']="None"
+                      
+                  if form.cleaned_data['predicat'] == "":
+                      form.cleaned_data['predicat']="None"
                 
                   pre = form.cleaned_data['predicat']      
 
                  
-                  obj = "None"    
+                  obj = form.cleaned_data['objectV']     
                       
                   print("subject:", sub)
                   print("predicate:", pre)
                   print("objectV:", obj)
                 
-                  print(f"http://localhost:8000/api/get/CONSTRUCT/{dataset}/{sub}/{pre}/{obj}")
-                
-                  RESULT=requests.get(f"http://localhost:8000/api/get/CONSTRUCT/{dataset}/{sub}/{pre}/{obj}")
+                  RESULT=requests.get(f"http://localhost:8000/api/get/SELECT/{dataset}/{sub}/{pre}/{obj}/")
                   if RESULT.status_code == 200:
                       found = True 
-                      graph=RESULT.json()
                       
                       #Retreiving data as JSON objects array
-                      JSONArray=requests.get(f"http://localhost:8000/api/get/SELECT/{dataset}/{sub}/{pre}/{obj}").json()
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
+                      JSONArray=RESULT.json()
+                        
                       #Visualizing the graph produced
-
-
                       net = Network(height="750px", width="100%", font_color="black", directed =True)
                       for r in JSONArray:
                             try:
@@ -111,9 +104,12 @@ def Myform(request, dataset):
                       
                       net.show_buttons(filter_=['physics'])
                       net.write_html("templates\\generatedgraphs\\temp.html", local=False )
+                      
+                  else:
+                        notfound = True
                                 
                 
-      return render(request,'templates/triples/form.html',{'form':form, 'found': found, 'JSONArray':JSONArray, "data_set": dataset})
+      return render(request,'templates/triples/form.html',{'form':form, 'found': found, 'notfound': notfound,'JSONArray':JSONArray, "data_set": dataset})
 
 def graph(r):
       return render(r,'templates/generatedgraphs/temp.html')

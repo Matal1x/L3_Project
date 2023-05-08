@@ -16,6 +16,7 @@ def api_get_SELECT_JSON(request, graph, subject, predicat, objectV, *args, **kwa
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
     (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, objectV, graph)
+    
     if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
         return Response("no result found.", status=404)
     
@@ -120,21 +121,3 @@ def api_put_MODIFY(request, graph, subject, predicat, objectV, *args, **kwargs):
     result = PY4J_customf.DELETE_INSERT_QUERY(graph, subject, predicat, objectV)
     return Response("Modification successfull")
     
-    
-
-# @api_view(['POST'])
-# @authentication_classes([TokenAuthentication])
-# @permission_classes([IsAuthenticated, IsAdminUser])
-# def api_add_graph(request):
-#     try:
-#         rdf_text=request.data["rdf_text"]
-#         rdf_format=request.data["rdf_format"]
-#     except Exception as e:
-#         return Response(e, status=400)
-#     else:
-#         try:
-#             gfunc.add_graph(rdf_text, rdf_format)
-#         except:
-#             print("Bad syntax/format")
-#         else:
-#             return Response("Graph added successfully")

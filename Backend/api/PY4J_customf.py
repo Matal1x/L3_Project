@@ -53,6 +53,7 @@ def SELECT_QUERY_JS(graph,s,p,o):
     HandleStore=gateway.entry_point.getHandleStore()
     
     tempS=""; tempP=""; tempO=""; 
+    FILTER=""
     
     if s=="?s":
         s=""
@@ -65,6 +66,10 @@ def SELECT_QUERY_JS(graph,s,p,o):
         tempP="?p"
         
     if o=="?o":
+        o=""
+    elif not o.isnumeric():
+        o=f"\"{o}\""
+        FILTER=f"FILTER (CONTAINS(?o, {o}))"
         o=""
     else:
         tempO="?o"    
@@ -82,8 +87,10 @@ def SELECT_QUERY_JS(graph,s,p,o):
                                 WHERE {{
                                     {VALUES}
                                     ?s ?p ?o.
+                                    {FILTER}
                                 }}
                                 ORDER BY ?s ?p
+                                LIMIT 10
                                 """)
     rs = resSelect.getResultSet()
     
@@ -100,7 +107,9 @@ def ASK_QUERY(graph,s,p,o):
     gateway = JavaGateway()
     HandleStore=gateway.entry_point.getHandleStore()
     
-    
+    if not o.isnumeric() and o!="?o":
+        o=f"\"{o}\""
+        
     resAsk = HandleStore.get(f"{endpoint}/Cybersecurity/DataSet/{graph}",
                              
                              f""" 
