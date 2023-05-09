@@ -254,10 +254,10 @@ section{
 }
 
 .popup{
-    width: 400px;
+    width: 1150px;
     background: #fff;
     border-radius: 6px ;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 50%;
     transform: translate(-50%,-50%) scale(0.1);
@@ -281,7 +281,7 @@ section{
     width: 100px;
     height: 100px;
     position: relative;
-    margin-top: -1%;
+    margin-top: -2%;
     margin-bottom: 5px;
     border-radius: 10px;
     box-shadow: rgba(0,0,0,0.2);
@@ -293,7 +293,7 @@ section{
     margin: 15px 0 10px;
 }
 .popup button{
-    width:70%;
+    width:25%;
     margin-top:10px ;
     margin-bottom: 9px;
     padding: 10px 0;

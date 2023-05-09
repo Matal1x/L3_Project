@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
-<link rel='stylesheet' href="{% static 'css/styling.css' %}" type='text/css'>
+<link rel='stylesheet' href="{% static 'css/pagestyle.css' %}" type='text/css'>
     
     </head>
 <body>
@@ -103,8 +103,25 @@
         <div class="container">             
             <div class="popup" id="popup">
                 <img src="{%static 'img\keycard.png' %}" alt="Oops! There Was A Problem">
-                <h2>Here's your command</h2>
-                <p>command...</p>
+                <h2>Here are your commands!</h2>
+                <p>To perform <b>SELECT</b>, <b>ASK</b> , and <b>CONSTRUCT</b>  Queries use:</p>
+                <br>
+                <p>curl -X GET "(our current site ip adresse)/api/get/(<b>QUERY</b>)/(graph-name)/(subject)/(predicat)/(object)/"</p>
+                <br>
+                <p>To be able to perform <b>INSERT</b> , <b>MODIFY</b> , and <b>DELETE</b>  operations use:</p>
+                <br>
+                <p>curl -X (<b>method</b>) "(our current site ip adresse)/api/put/(<b>QUERY</b>)/(graph-name)/(subject)/(predicat)/(object)/" -H "Authorization: Token (your token key)"
+                </p>
+                <br>
+                <p><b>NOTE!</b></p>
+                    <p>Make sure that the method matches with the Query</p> 
+                    <br>
+                   <p>use:</p>   
+                   <br>
+                   <p>The <b>POST</b>  method to <b>INSERT</b> </p>
+                   <p>The <b>PUT</b>  method to <b>MODIFY</b> </p>
+                   <p>The <b>DELETE</b>  method to <b>DELETE</b> </p>  
+                
                 <h2>Enjoy!</h2>
                 <button type="button" onclick="closePopup()">OK</button>
             </div>
