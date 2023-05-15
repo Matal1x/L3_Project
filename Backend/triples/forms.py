@@ -4,7 +4,8 @@ from . import  models
  
 class DoHTripleForm(forms.ModelForm):
     subject=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Attack N° (optional)"}))
- 
+    objectV=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Value (optional)"}))
+    
     class Meta: #going to connect the model to the form fields
         model=models.DoHTriple
         fields= [
@@ -14,6 +15,8 @@ class DoHTripleForm(forms.ModelForm):
         ]
 class KDDTripleForm(forms.ModelForm):
     subject=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Attack N° (optional)"}))
+    objectV=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Value (optional)"}))
+    
     class Meta: #going to connect the model to the form fields
         model=models.KDDTriple
         fields= [
