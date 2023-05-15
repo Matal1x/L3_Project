@@ -5,6 +5,7 @@
     font-family: 'Philosopher', sans-serif;
 }
 
+
 body{
     display: flex;
     justify-content: center;
@@ -18,8 +19,27 @@ body{
     background-position: center;
     
 }
+/* scrollbar */
+::-webkit-scrollbar {
+    height: 12px;
+    width: 10px;
+    background: #000;
+}
 
-/*Cover*/
+::-webkit-scrollbar-thumb {
+    background: #9a9898;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:  #d3d2d2;
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
 
 /*Navbar*/
 .navigbar{
@@ -59,13 +79,13 @@ h1{
     padding: 5px 5px;
     border-radius: 4px;
     transition: ease .40s;
-    color: rgb(114, 129, 226); /*good*/
+    color: rgb(114, 129, 226); 
     text-decoration: none;
     
 }
 
 .navlinks a:hover{
-    background: rgba(165, 177, 255,.80);                 /*rgb(62, 56, 62); good font colo  rgb(246, 240, 246)r*/
+    background: rgba(165, 177, 255,.80);               
     color: rgb(30, 6, 38);
     transition: .50s;
     padding: 7px 8px;
@@ -82,7 +102,7 @@ h1{
 }
 
 .navlinks .content-btn:hover{
-    background: rgba(165, 177, 255,.80);                 /*rgb(62, 56, 62); good font colo  rgb(246, 240, 246)r*/
+    background: rgba(165, 177, 255,.80);                
     color: white; 
     transition: .35s;
     padding: 10px 10px;

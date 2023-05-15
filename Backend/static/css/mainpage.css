@@ -4,6 +4,26 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+/* scrollbar */
+::-webkit-scrollbar {
+    height: 12px;
+    width: 10px;
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9a9898;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:  #d3d2d2;
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
 /*Cover*/
 
 header {
@@ -137,7 +157,7 @@ ul{
 
 /*get your graph section*/
 .graph{
-    width: 70%; /*problem was here*/
+    width: 80%; 
     margin: 80px auto;
     justify-content: center;
 }
@@ -154,15 +174,15 @@ ul{
 
 .row{
     display: flex;
-    width: 100%; /*here*/
+    width: 100%; 
     align-items: center;
     justify-content: space-around;
     
 }
 .col{
-    margin-right: 450px;/*here*/
+    margin-right: 450px;
     margin-top:100px;
-    margin-bottom:500px; /*contact us section here problem fixed*/
+    margin-bottom:500px; 
     justify-content: center;
 }
 
@@ -173,7 +193,7 @@ ul{
 .card{
     width: 280px;
     height: 360px;
-    padding: 10px 10px; 
+    padding: 10px 1px; 
     background:#fff;
     position:absolute;
     display:flex;
@@ -217,6 +237,7 @@ ul{
 }
 
 .card .inf{
+    
     position: relative;
     z-index: 3;
     color: #fff;
@@ -226,24 +247,40 @@ ul{
     transition: 0.5s all;
 }
 
+
+
 .card:hover .inf{
     position: relative;
     
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(100px);
  }
+
+ .card:hover .inf.adminfeature{
+    position: relative;
+    
+    opacity: 1;
+    transform: translateY(45px);
+ }
+
+
+
 
  .card .inf h1{
     margin-top: 250px;
+    font-size: 30px;
 
  }
 
  .card .inf p{
     letter-spacing: 1px;
+    font-weight: 500;
     font-size: 15px; 
-    margin-top: 8px;
+    line-height: 115%;
+    margin-top:20px;
     margin-bottom: 20px;
  }
+
 
  .card .inf .content-btn{
     margin-left: 2px;
@@ -251,6 +288,7 @@ ul{
  
 section{
     height: 100%;
+    
 }
 
 .popup{
@@ -306,3 +344,31 @@ section{
     cursor:pointer;
     box-shadow: 0 5px 5px rgba(0,0,0,0.2);
 }
+
+/*Footer*/
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background:#111;
+}
+
+.footer-area{
+    display: flex;
+}
+.content{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+

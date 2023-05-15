@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Cyber Security | Knowledge Graphs</title>
-    
+    <script src="https://kit.fontawesome.com/15566cc30e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
-<link rel='stylesheet' href="{% static 'css/pagestyle.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/mainpage.css' %}" type='text/css'>
     
     </head>
 <body>
@@ -24,16 +24,12 @@
     </div>
     <header style="background-image: url({% static 'img/cyber.jpg' %});">
         <div class="header-content">
-            <h1>Cyber Security <br> Knowledge Graphs  </h1>
-            <p>A giant leap for cyber security  </p>
+            <h1>Cybersecurity <br> Knowledge Graphs  </h1>
+            <p>A giant leap for cybersecurity  </p>
             <a href="#graph" class="content-btn" >Get Graph</a>
         </div>
 
     </header>
-
-    <section>
-
-    </section>
     
 
     <section id="graph" >
@@ -49,7 +45,15 @@
                             <img src="{%static 'img\nsl-kdd2.jpg' %}" alt="Oops! There Was A Problem">
                             <div class="inf">
                                 <h1>NSL-KDD Dataset</h1>
-                                <p>The NSL-KDD is a dataset that concerns ....</p>
+                                <p>
+                                    The NSL-KDD dataset consists of network traffic data captured from a simulated environment, 
+                                    including various types of intrusive activities. 
+                                    <br><br>
+                                    This dataset graph representation contains several features 
+                                    extracted from network packets, such as connection attributes, protocol-related information, 
+                                    and host-based features.
+                                    
+                                </p>
                                 <button type="button" class="content-btn" ><a href="http://127.0.0.1:8000/data/form/NSLKDD/ " style="text-decoration: none; color: rgb(30, 6, 38); ">Get Graph!</a></button>
 
 
@@ -64,8 +68,13 @@
                         <div class="card">
                             <img src="{%static 'img\dns.jpg' %}" alt="Oops! There Was A Problem">
                             <div class="inf">
-                                <h1>DNS Dataset</h1>
-                                <p>The DNS is a dataset that concerns ....</p>
+                                <h1>DNS <br> Dataset</h1>
+                                <p>The DNS over HTTPS (DoH) dataset contains the collection of data that captures various aspects 
+                                    of DoH usage.
+                                   <br><br>
+                                    This dataset graph representation includes information such as the source IP addresses of DNS queries, the 
+                                    corresponding domain names being queried, timestamps of the queries, the DoH resolver used, and 
+                                    other relevant metadata.</p>
                                 <button type="button" class="content-btn"  ><a href="http://127.0.0.1:8000/data/form/DNS/" style="text-decoration: none; color: rgb(30, 6, 38);" >Get Graph!</a></button>
                                 
                 
@@ -74,15 +83,14 @@
                     </div>
                     </div>
                     <div class="col">
-                        <!--DNS dataset -->
+                        <!--Admin feature -->
                         <div class="outline">
                             <div class="card">
                                 <img src="{%static 'img\admin1.jpg' %}" alt="Oops! There Was A Problem">
-                                <div class="inf">
+                                <div class="inf adminfeature">
                                     <h1>Admin</h1>
-                                    <br>
                                     <p>Being an admin gives you the ability to connect and change your desired graph.
-                                        <br>
+                                        <br><br>
                                         using the authorised token, you'll be able to run the provided command using your cmd!
                                     </p>
                                     <button type="button" class="content-btn" onclick="openPopup()" ><a href="#" style="text-decoration: none; color: rgb(30, 6, 38);" >Get Command!</a></button>
@@ -139,7 +147,58 @@
         popup.classList.remove("open-popup");
     }
    </script>
-
+<footer>
+    <div class="footer-area">
+        <div class="left-box">
+            <h2>About Us</h2>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, maiores quos aspernatur ea 
+                    maxime minima atque deleniti, vero fuga ipsum dolorem quaerat pariatur. Recusandae omnis id 
+                    sint facere culpa natus.</p>
+                    <div class="social">
+                        <a href="#"><span class="fab fa-facebook-f"></span></a>
+                        <a href="#"><span class="fab fa-instagram"></span></a>
+                        <a href="#"><span class="fab fa-linkedin"></span></a>
+                    </div>
+            </div>
+        </div>
+        <div class="center-box">
+            <h2>Address</h2>
+            <div class="content">
+                <div class="place">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="text">Oran, Algria</span>
+                </div>
+                <div class="phone">
+                    <span class="fas fa-phone-alt"></span>
+                    <span class="text">+213-672732808</span>
+                </div>
+                <div class="email">
+                    <span class="fas fa-envelope"></span>
+                    <span class="text">abbasikram620@gmail.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <h2>Contact Us</h2>
+            <div class="content">
+                <form action="#">
+                    <div class="email">
+                        <div class="text">Email *</div>
+                        <input type="email" required>
+                    </div>
+                    <div class="message">
+                        <div class="text">Message *</div>
+                        <textarea cols="25" rows="2" required></textarea>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
