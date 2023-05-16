@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
     {% endblock css%}
-    <link rel='stylesheet' href="{% static 'css/formcsspage.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/formstyling.css' %}" type='text/css'>
     
 </head>
 <body style="background-image: url({% static 'img/form.jpg' %});">
@@ -31,18 +31,20 @@
             
             <form method="POST">
             <div class="container">
-                <h2>{{data_set}} DATASET</h2>
+                <h2>{{data_set}} <br> DATASET</h2>
                 <p></p>
-                    {{ form.as_p}}
+                    {{ form.as_p}} 
                     {% csrf_token %}
-                    
                     <input type="submit" class="waves-effect waves light btn-small boomm" value="submit" id="post">    
+                
             </form>
         </div>
-        
+        </div>
             {% if found %}
             <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small boom"> View Graph</a>
+
                 <table>
+                    <div class="container">
                     <tr>
                         <th>Subject</th>
                         <th>Predicat</th>
@@ -50,16 +52,19 @@
                     </tr>
                     {% for r in JSONArray %}
                     <tr>
-                        <td>{{r.s}}</td>
-                        <td>{{r.p}}</td>
-                        <td>{{r.o}}</td>
+                        <td class="split" >{{r.s}}</td>
+                        <td class="split">{{r.p}}</td>
+                        <td class="split">{{r.o}}</td>
                     </tr>
                     {% endfor %}
-        
+                     </div> 
                 </table>
+              
                 
+            
+            
             {% endif %}
-
+        
             {% if notfound %}
             <h3 class="error-message"> No result found</h3>
             {% endif %}
@@ -86,7 +91,7 @@
                 
 
 
-        </div>
+        
         </div>
 
     
