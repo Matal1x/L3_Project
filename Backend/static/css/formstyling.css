@@ -17,6 +17,7 @@ body{
     background-size: cover;
     padding-top: 180px;
     background-position: center;
+    margin-bottom: 630px ; 
     
 }
 /* scrollbar */
@@ -205,13 +206,14 @@ ul{
 .formbox{
     width: 100%;
     padding: 40px;
-    margin-top: 180px;
+    margin-top: 180px; 
 }
 
 .formbox h2{
     font-size: 2em;
     color: rgb(13, 29, 67);
     text-align: center;
+    margin-right: 30px;
 }
 
 .input-box{
@@ -283,8 +285,12 @@ form{
 .container{
     margin:-20px 30px !important;
     position: fixed !important;
+    
 }
 
+.container2{
+    margin:-20px 30px !important;
+}
 
 
 
@@ -298,23 +304,24 @@ ul:not(.browser-default)>li {     /*'value must be an integer' error text*/
 .waves-effect.waves.light.btn-small.boom{
     padding:1px 110px;
     margin-top:-315px;
-    margin-left: 10px;
+    margin-left: 50px;
     margin-bottom: -900px;
     background-color:cadetblue;
-    position: fixed;
+    position: fixed ;
     z-index: -1 !important; 
 
 }
 
 .waves-effect.waves.light.btn-small.boomm{
-    margin-left:60px;
+    margin-left:80px;
     margin-top:13px;
+    position: fixed;
 
 }
 
 th,td{
-    padding: 10px 22px !important;
-    text-align: ce0ter !important;
+    padding: 14px 22px !important;
+    text-align: center !important;
     margin-right: auto !important;
     margin-left: auto !important;
 }
@@ -334,13 +341,16 @@ td {
 
 table {
     margin-bottom: -900px !important;
-    margin-top: 270px !important; 
-    margin-left:-450px !important;
+    margin-top: 370px !important; 
+    margin-left:-780px !important;
     border-collapse: collapse !important;
+    position: fixed;
+    z-index: -1 !important;
 }
 
 tr{
     border: none !important;
+    
 }
 
 
@@ -372,7 +382,7 @@ tr{
 h3 {
     font-size:17px !important;
     line-height: 110%;
-    margin: 16rem 0 0.170rem 5.5rem !important;
+    margin: 26rem 0 0.170rem -16.8rem !important;
     color:grey !important;
 }
 
