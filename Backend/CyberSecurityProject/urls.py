@@ -21,6 +21,6 @@ urlpatterns = [
     path('', views.index, name='index'),#homepage
      
     path('admin/', admin.site.urls), #admin site
-    path('api/', include('api.urls')),
-    path('data/', include('triples.urls')),
+    path('api/', include('api.urls'), name="api"),
+    path('data/', include('triples.urls'), name="data"),
 ]
