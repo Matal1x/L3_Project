@@ -12,18 +12,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
     {% endblock css%}
-    <link rel='stylesheet' href="{% static 'css/formstyling.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/formcss.css' %}" type='text/css'>
     
 </head>
-<body style="background-image: url({% static 'img/form.jpg' %});">
-    
+<body style="background-image: url({% static 'img/form.jpg' %}); ">
     <div class="navigbar" style="margin-top: -50px;">
         <h1><a href="http://127.0.0.1:8000/" class="logo">MATALIX</a></h1>
         <ul class="navlinks">
             <li><a href="http://127.0.0.1:8000/">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="http://127.0.0.1:8000/#about">About</a></li>
             <li><a href="http://127.0.0.1:8000/#graph">Graphs</a></li>
-            <li ><a class="content-btn" href="#" style="text-decoration: none;" >contact us</a></li>
         </ul>
     </div>
     <div class="wrapper" >
@@ -41,7 +39,6 @@
         </div>
         </div>
             {% if found %}
-        
             <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small boom"> View Graph</a>
             <div>
                 <table>
@@ -89,10 +86,6 @@
                     
                     </script>
                 {% endblock javascript %}
-                
-
-
-
     
 </body>
 </html>

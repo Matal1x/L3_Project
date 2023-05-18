@@ -1,6 +1,7 @@
 from django import forms
 from . import  models
 
+#form-page form
  
 class DoHTripleForm(forms.ModelForm):
     subject=forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={"placeholder":"Attack N° (optional)"}))
@@ -26,4 +27,3 @@ class KDDTripleForm(forms.ModelForm):
         ]
 
 
-        

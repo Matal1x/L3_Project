@@ -9,13 +9,14 @@ from rdflib import Graph as RDFGraph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_graph
 from pyvis.network import Network
 
+
 import random
 # Create your views here.
 
 
 
 def index(request):
-        return render(request,'templates/triples/index.html')
+      return render(request,'templates/triples/index.html')
 
 def Myform(request, dataset):
       
@@ -116,3 +117,5 @@ def Myform(request, dataset):
 
 def graph(r):
       return render(r,'templates/generatedgraphs/temp.html')
+
+#main-page contact page

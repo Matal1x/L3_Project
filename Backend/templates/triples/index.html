@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href="{% static 'css/mainpage.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/maincss.css' %}" type='text/css'>
     
     </head>
 <body>
@@ -17,9 +17,8 @@
         <h1><a href="http://127.0.0.1:8000/" class="logo">MATALIX</a></h1>
         <ul class="navlinks">
             <li><a href="http://127.0.0.1:8000/">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#graph">Graphs</a></li>
-            <li ><a class="content-btn" href="#">contact us</a></li>
         </ul>
     </div>
     <header style="background-image: url({% static 'img/cyber.jpg' %});">
@@ -30,12 +29,63 @@
         </div>
 
     </header>
-    
+
+
+
+    <section id="about">
+        <div class="about-1">
+            <h1>About Us</h1>
+            <br>
+            <hr>
+                <p>As our Bacholers dissertation, we decided on coducting our research about the interesting topic of the implementation of knowledge 
+                    graphs for machine learning in cybersecurity. <br> Get to know more about us and our work through our Objective, our Mission, and our Vision!
+                 </p>
+        </div>
+        
+        <div class="about-2">
+            <div class="content-box-lg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="about-item">
+                                <i class="fa fa-book"></i>
+                                <h3>MISSION</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
+                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-item">
+                                <i class="fa fa-globe"></i>
+                                <h3>VISION</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
+                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-item">
+                                <i class="fa fa-pencil"></i>
+                                <h3>ACHIEVEMENTS</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
+                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
 
     <section id="graph" >
         <div class="graph">
             <div class="gtitle">
                 <h1>Get Your Graph!</h1>
+                
             </div>
             <div class="row">
                 <div class="col">
@@ -147,22 +197,23 @@
         popup.classList.remove("open-popup");
     }
    </script>
-<footer>
-    <div class="footer-area">
-        <div class="left-box">
-            <h2>About Us</h2>
+<footer id="footer">
+    <div class="contents">
+        <div class="left box">
+            <h2>connect</h2>
             <div class="content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, maiores quos aspernatur ea 
                     maxime minima atque deleniti, vero fuga ipsum dolorem quaerat pariatur. Recusandae omnis id 
                     sint facere culpa natus.</p>
                     <div class="social">
                         <a href="#"><span class="fab fa-facebook-f"></span></a>
+                        <a href="#"><span class="fab fa-twitter"></span></a>
                         <a href="#"><span class="fab fa-instagram"></span></a>
                         <a href="#"><span class="fab fa-linkedin"></span></a>
                     </div>
             </div>
         </div>
-        <div class="center-box">
+        <div class="center box">
             <h2>Address</h2>
             <div class="content">
                 <div class="place">
@@ -179,24 +230,12 @@
                 </div>
             </div>
         </div>
-        <div class="right-box">
-            <h2>Contact Us</h2>
-            <div class="content">
-                <form action="#">
-                    <div class="email">
-                        <div class="text">Email *</div>
-                        <input type="email" required>
-                    </div>
-                    <div class="message">
-                        <div class="text">Message *</div>
-                        <textarea cols="25" rows="2" required></textarea>
-                    </div>
-                    <div class="btn">
-                        <button type="submit">send</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    </div>
+    <div class="copyright">
+        <center>
+            <span class="far fa-copyright"></span>
+            <span class="credit">2023 <a href="#">MATALIX</a>. All Rights Reserved.</span>
+        </center>
     </div>
 </footer>
 
