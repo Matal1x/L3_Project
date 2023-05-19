@@ -5,14 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Cyber Security | Knowledge Graphs</title>
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/window_icon.jpg' %}">
     <script src="https://kit.fontawesome.com/15566cc30e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href="{% static 'css/maincss.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/mainstyles.css' %}" type='text/css'>
     
     </head>
 <body>
+
+    <!--scroll back to top btn-->
+    <a class="topbtn" href="#"><i class="fas fa-arrow-up"></i></a>
+
+    <!--navigation bar-->
+
     <div class="navbar">
         <h1><a href="{% url 'index' %}" class="logo">MATALIX</a></h1>
         <ul class="navlinks">
@@ -21,16 +28,19 @@
             <li><a href="#graph">Graphs</a></li>
         </ul>
     </div>
-    <header style="background-image: url({% static 'img/cyber.jpg' %});">
+
+    <!--website cover-->
+
+    <header style="background-image: url({% static 'img/cover.jpg' %});">
         <div class="header-content">
             <h1>Cybersecurity <br> Knowledge Graphs  </h1>
             <p>A giant leap for cybersecurity  </p>
             <a href="#graph" class="content-btn" >Get Graph</a>
         </div>
-
     </header>
 
 
+    <!--about section-->
 
     <section id="about">
         <div class="about-1">
@@ -38,7 +48,7 @@
             <br>
             <hr>
                 <p>As our Bacholers dissertation, we decided on coducting our research about the interesting topic of the implementation of knowledge 
-                    graphs for machine learning in cybersecurity. <br> Get to know more about us and our work through our Objective, our Mission, and our Vision!
+                    graphs for machine learning in cybersecurity. <br> Get to know more about us and our work through our Mission, our Vision, and our Achievements!
                  </p>
         </div>
         
@@ -51,17 +61,25 @@
                                 <i class="fa fa-book"></i>
                                 <h3>MISSION</h3>
                                 <hr>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
-                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                                <p class="mission">The main objective of this end of bachelors studies project, is to obtain a 
+                                    <b>knowledge graph</b> extracted from several popular datasets. This is because, the large 
+                                    and diverse amount of data, hides very useful knowledge relations in cybersecurity. 
+                                    The strategy adopted is based on <b>RDF graphs</b>, and <b> NoSQL stores </b>.
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="about-item">
+                            <div class="about-item ">
                                 <i class="fa fa-globe"></i>
                                 <h3>VISION</h3>
                                 <hr>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
-                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                                <p class="vision">Nowadays, Data Mining (DM), Machine Learning (ML), and Artificial Intelligence 
+                                    (AI) tools are widely applied in cybersecurity, aiming to help produce powerful, 
+                                    and intelligent intrusion detection systems.
+                                <p> Our vision is to develop a tool, that provides an effective visual representation
+                                    for intelligent vulnerability detection, which will support existing Machine Learning 
+                                    solutions. This will be done through the use of Knowledge Graphs.</p>
+                                   </p> 
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -69,8 +87,13 @@
                                 <i class="fa fa-pencil"></i>
                                 <h3>ACHIEVEMENTS</h3>
                                 <hr>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quo nulla ipsam ipsa quasi magni, sit ut hic ab 
-                                    iure nisi voluptate, ex et eaque voluptatem provident mollitia maiores placeat?</p>
+                                <p>We were successfully able to: <br> <br>
+                                    -	 Develop a cybersecurity knowledge graph obtained from existing datasets. <br> <br>
+                                    -	Allow <b> visualisation </b> of different Cybersecurity Knowledge Graphs by admin and non-admin users. <br> <br>
+                                    -	Allow <b> modifications </b> to be performed on the Knowledge Graphs by admin users <br> <br>
+                                    -	Allow the extraction of information from the Knowledge Graphs by admin users, using a set of
+                                     queries. 
+                                    </p>
                             </div>
                         </div> 
                     </div>
@@ -80,6 +103,8 @@
     </section>
 
     <hr>
+
+    <!--get your graph section-->
 
     <section id="graph" >
         <div class="graph">
@@ -92,7 +117,7 @@
                     <!--NSL-KDD dataset-->
                     <div class="outline">
                         <div class="card">
-                            <img src="{%static 'img\nsl-kdd2.jpg' %}" alt="Oops! There Was A Problem">
+                            <img src="{%static 'img\nsl-kdd.jpg' %}" alt="Oops! There Was A Problem">
                             <div class="inf">
                                 <h1>NSL-KDD Dataset</h1>
                                 <p>
@@ -136,12 +161,12 @@
                         <!--Admin feature -->
                         <div class="outline">
                             <div class="card">
-                                <img src="{%static 'img\admin1.jpg' %}" alt="Oops! There Was A Problem">
+                                <img src="{%static 'img\admin.jpg' %}" alt="Oops! There Was A Problem">
                                 <div class="inf adminfeature">
                                     <h1>Admin</h1>
                                     <p>Being an admin gives you the ability to connect and change your desired graph.
                                         <br><br>
-                                        using the authorised token, you'll be able to run the provided command using your cmd!
+                                        using the authorised token, you'll be able to run the provided commands using your cmd.
                                     </p>
                                     <button type="button" class="content-btn" onclick="openPopup()" ><a href="#" style="text-decoration: none; color: rgb(30, 6, 38);" >Get Command!</a></button>
                                     
@@ -158,9 +183,12 @@
             </div>
             
         </div>
+        
+    <!--Admin feature commands-->
+
         <div class="container">             
             <div class="popup" id="popup">
-                <img src="{%static 'img\keycard.png' %}" alt="Oops! There Was A Problem">
+                <img src="{%static 'img\admin-keycard.png' %}" alt="Oops! There Was A Problem">
                 <h2>Here are your commands!</h2>
                 <p>To perform <b>SELECT</b>, <b>ASK</b> , and <b>CONSTRUCT</b>  Queries use:</p>
                 <br>
@@ -185,6 +213,7 @@
             </div>
     </section>
     
+    <!--admin feature commands popup button Javascript-->
 
    <script>
     let popup = document.getElementById("popup");
@@ -197,19 +226,29 @@
         popup.classList.remove("open-popup");
     }
    </script>
+
+    <!--scroll back to top button Javascript--> 
+
+   <script type="text/javascript">
+        window.addEventListener('scroll',function(){
+            var scroll= document.querySelector('.topbtn')
+            scroll.classList.toggle("active", window.scrollY > 500)
+        })
+   </script>
+    
+    <!--website footer-->
+
 <footer id="footer">
     <div class="contents">
         <div class="left box">
             <h2>connect</h2>
             <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, maiores quos aspernatur ea 
-                    maxime minima atque deleniti, vero fuga ipsum dolorem quaerat pariatur. Recusandae omnis id 
-                    sint facere culpa natus.</p>
+                <p>Connect to follow along and stay updated for behind the scenes content and learn more about MATALIX</p>
                     <div class="social">
-                        <a href="#"><span class="fab fa-facebook-f"></span></a>
-                        <a href="#"><span class="fab fa-twitter"></span></a>
-                        <a href="#"><span class="fab fa-instagram"></span></a>
-                        <a href="#"><span class="fab fa-linkedin"></span></a>
+                        <a href="https://www.facebook.com/profile.php?id=100092166462291"><span class="fab fa-facebook-f"></span></a>
+                        <a href="https://twitter.com/MatalixUniv"><span class="fab fa-twitter"></span></a>
+                        <a href="https://www.instagram.com/matalix.univ/"><span class="fab fa-instagram"></span></a>
+                        <a href="https://www.linkedin.com/in/matalix-univ-a6888a277/"><span class="fab fa-linkedin"></span></a>
                     </div>
             </div>
         </div>
@@ -218,15 +257,15 @@
             <div class="content">
                 <div class="place">
                     <span class="fas fa-map-marker-alt"></span>
-                    <span class="text">Oran, Algria</span>
+                    <span class="text">Oran, Algeria</span>
                 </div>
                 <div class="phone">
                     <span class="fas fa-phone-alt"></span>
-                    <span class="text">+213-672732808</span>
+                    <span class="text">+213679522407</span>
                 </div>
                 <div class="email">
                     <span class="fas fa-envelope"></span>
-                    <span class="text">abbasikram620@gmail.com</span>
+                    <span class="text">matalix.univ@gmail.com</span>
                 </div>
             </div>
         </div>
@@ -234,7 +273,7 @@
     <div class="copyright">
         <center>
             <span class="far fa-copyright"></span>
-            <span class="credit">2023 <a href="#">MATALIX</a>. All Rights Reserved.</span>
+            <span class="credit">2023 <a >MATALIX</a>. All Rights Reserved.</span>
         </center>
     </div>
 </footer>
