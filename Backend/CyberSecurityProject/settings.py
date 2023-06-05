@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import requests
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,10 +30,22 @@ SECRET_KEY = 'django-insecure-gg7+cv!m80l%u)oun-rh(#yvi&%!+syi=y9bcr3n82i#6w$_6e
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','172.16.1.2']
+CSRF_TRUSTED_ORIGINS = []
+def update_ngrok_host():
+    try:
+        ngrok_host = requests.get('http://localhost:4040/api/tunnels').json()['tunnels'][0]['public_url']
+        ngrok_host = urlparse(ngrok_host).netloc
+        return ngrok_host
+    except Exception as e:
+        print(f"Error updating ngrok host: {e}")
+        return None
 
 
-
+ngrok_host = update_ngrok_host()
+if ngrok_host:
+    ALLOWED_HOSTS.append(ngrok_host)
+    CSRF_TRUSTED_ORIGINS.append(f"https://{ngrok_host}")
 # Application definition
 
 INSTALLED_APPS = [
