@@ -51,7 +51,7 @@ body{
     right: 0;
     width: 100%;
     justify-content: space-between;
-    padding: 50px 10%;
+    padding: 20px 110px;
     transition: ease .40s;
     color: rgb(165, 177, 255);
     margin-top: -5px !important;
@@ -65,10 +65,19 @@ body{
    cursor: default;
 }
 
+.lio {
+    width: 280px;
+}
 
 h1{
     margin:-10px 0px 18.5px !important;
 }
+
+.links{
+    margin-top: 19px;
+    margin-right: 72px;
+}
+
 
 .navlinks{
     display: flex;
@@ -82,7 +91,7 @@ h1{
     transition: ease .40s;
     color: rgb(114, 129, 226); 
     text-decoration: none;
-    cursor: default;
+    cursor: pointer;
 }
 
 .navlinks a:hover{
@@ -313,6 +322,13 @@ ul:not(.browser-default)>li {     /*'value must be an integer' error text*/
 
 }
 
+.limit{
+    margin-top: 85px;
+    margin-left:25px;
+    color: #26a69a;
+    cursor: default;
+}
+
 th,td{
     padding: 14px 22px !important;
     text-align: center !important;
@@ -391,7 +407,7 @@ p{
     background-color: rgba(158, 168, 230,.7); 
     color: #fff;
     border: none;
-    cursor: default;
+    cursor: pointer;
     border-radius: 10px;
     padding-top: 10px;
     padding-left: 16px;

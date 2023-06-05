@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" >
     <title>Cyber Security | Knowledge Graphs</title>
     <link rel="shortcut icon" type="x-icon" href="{% static 'img/window_icon.jpg' %}">
     <script src="https://kit.fontawesome.com/15566cc30e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Changa+One:ital@1&family=Josefin+Sans:wght@100&family=Philosopher&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href="{% static 'css/mainstyles.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/cssmainpage.css' %}" type='text/css'>
     
     </head>
 <body>
@@ -21,25 +21,27 @@
     <!--navigation bar-->
 
     <div class="navbar">
-        <h1><a href="{% url 'index' %}" class="logo">MATALIX</a></h1>
+        <div class="logo">
+            <a href="{% url 'index' %}" ><img class="lio" src="{% static 'img/website_logo.png' %}"></a>
+        </div>
+        <div class="links">
         <ul class="navlinks">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#graph">Graphs</a></li>
         </ul>
     </div>
+</div>
 
     <!--website cover-->
 
     <header style="background-image: url({% static 'img/cover.jpg' %});">
         <div class="header-content">
-            <h1>Cybersecurity <br> Knowledge Graphs  </h1>
-            <p>A giant leap for cybersecurity  </p>
+            <h1>Cyber Security <br> Knowledge Graphs  </h1>
+            <p>A giant leap for Cyber Security  </p>
             <a href="#graph" class="content-btn" >Get Graph</a>
         </div>
     </header>
-
-
     <!--about section-->
 
     <section id="about">
@@ -47,9 +49,11 @@
             <h1>About Us</h1>
             <br>
             <hr>
+            <div class="achieve">
                 <p>As our Bacholers dissertation, we decided on coducting our research about the interesting topic of the implementation of knowledge 
-                    graphs for machine learning in cybersecurity. <br> Get to know more about us and our work through our Mission, our Vision, and our Achievements!
+                    graphs for machine learning in cyber security. <br> Get to know more about us and our work through our Mission, our Vision, and our Achievements!
                  </p>
+                </div>
         </div>
         
         <div class="about-2">
@@ -63,7 +67,7 @@
                                 <hr>
                                 <p class="mission">The main objective of this end of bachelors studies project, is to obtain a 
                                     <b>knowledge graph</b> extracted from several popular datasets. This is because, the large 
-                                    and diverse amount of data, hides very useful knowledge relations in cybersecurity. 
+                                    and diverse amount of data, hides very useful knowledge relations in cyber security. 
                                     The strategy adopted is based on <b>RDF graphs</b>, and <b> NoSQL stores </b>.
                                 </p>
                             </div>
@@ -74,7 +78,7 @@
                                 <h3>VISION</h3>
                                 <hr>
                                 <p class="vision">Nowadays, Data Mining (DM), Machine Learning (ML), and Artificial Intelligence 
-                                    (AI) tools are widely applied in cybersecurity, aiming to help produce powerful, 
+                                    (AI) tools are widely applied in cyber security, aiming to help produce powerful, 
                                     and intelligent intrusion detection systems.
                                 <p> Our vision is to develop a tool, that provides an effective visual representation
                                     for intelligent vulnerability detection, which will support existing Machine Learning 
@@ -88,8 +92,8 @@
                                 <h3>ACHIEVEMENTS</h3>
                                 <hr>
                                 <p>We were successfully able to: <br> <br>
-                                    -	 Develop a cybersecurity knowledge graph obtained from existing datasets. <br> <br>
-                                    -	Allow <b> visualisation </b> of different Cybersecurity Knowledge Graphs by admin and non-admin users. <br> <br>
+                                    -	 Develop a cyber security knowledge graph obtained from existing datasets. <br> <br>
+                                    -	Allow <b> visualisation </b> of different Cyber Security Knowledge Graphs by admin and non-admin users. <br> <br>
                                     -	Allow <b> modifications </b> to be performed on the Knowledge Graphs by admin users <br> <br>
                                     -	Allow the extraction of information from the Knowledge Graphs by admin users, using a set of
                                      queries. 

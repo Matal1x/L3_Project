@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
     {% endblock css%}
-    <link rel='stylesheet' href="{% static 'css/formstyles.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/cssforms.css' %}" type='text/css'>
     
 </head>
 <body style="background-image: url({% static 'img/form-background.jpg' %}); ">
@@ -24,19 +24,23 @@
 
     <!--navigation bar-->
 
-    <div class="navigbar" style="margin-top: -50px;">
-        <h1><a href="{% url 'index' %}" class="logo">MATALIX</a></h1>
+    <div class="navigbar">
+        <div>
+           <a href="{% url 'index' %}" ><img class="lio" src="{% static 'img/website_logo.png' %}"></a> 
+        </div>
+        <div class="links">
         <ul class="navlinks">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'index' %}#about">About</a></li>
             <li><a href="{% url 'index' %}#graph">Graphs</a></li>
         </ul>
     </div>
+    </div>
 
     <!--Form-->
 
-    <div class="wrapper" >
-        <div class="formbox">
+    <div class="wrapper">
+        <div class="formbox" >
             <form method="POST">
             <div class="container">
                 <h2>{{data_set}} <br> DATASET</h2>
@@ -44,9 +48,12 @@
                     {{ form.as_p}} 
                     {% csrf_token %}
                     <input type="submit" class="waves-effect waves light btn-small boomm" value="submit" id="post">    
-                
+                    <br>
+                    <p class="limit">NOTE: Results are limited to 10 </p>
             </form>
+            
         </div>
+        
         </div>
             {% if found %}
             <a href="{% url 'triples:graph' %}" class="waves-effect waves light btn-small boom"> View Graph</a>
