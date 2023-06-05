@@ -94,20 +94,20 @@ def Myform(request, dataset):
                       net.add_node('ABBAS', 'ABBAS', color='#ffc0cb')
                       net.add_node('MOKADDEM', "MOKADDEM", color='#0000FF')
                       
-                      net.add_edge('ASLAOUI', 'ABBAS')
-                      net.add_edge('ASLAOUI', 'MOKADDEM')
+                      net.add_edge('ASLAOUI', 'ABBAS', label="colleague", title="colleague")
+                      net.add_edge('ASLAOUI', 'MOKADDEM', label="mentor", title="mentor")
                       
-                      net.add_edge("ABBAS", "ASLAOUI")
-                      net.add_edge("ABBAS", "MOKADDEM")
+                      net.add_edge("ABBAS", "ASLAOUI", label="colleague", title="colleague")
+                      net.add_edge("ABBAS", "MOKADDEM", label="mentor", title="mentor")
                       
-                      net.add_edge("MOKADDEM", "ASLAOUI")
-                      net.add_edge("MOKADDEM", "ABBAS")
+                      net.add_edge("MOKADDEM", "ASLAOUI", label="student", title="student")
+                      net.add_edge("MOKADDEM", "ABBAS", label="student", title="student")
                       
                       
                       
                       
                       net.show_buttons(filter_=['physics'])
-                      net.write_html("templates\\generatedgraphs\\temp.html", local=False )
+                      net.write_html("templates/generatedgraphs/temp.html", local=False )
                       
                   else:
                         notfound = True
