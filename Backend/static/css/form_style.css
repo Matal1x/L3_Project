@@ -382,7 +382,7 @@ tr{
 h3 {
     font-size:17px !important;
     line-height: 110%;
-    margin: 26rem 0 0.170rem -16.8rem !important;
+    margin: 25rem 0 0.170rem -16.8rem !important;
     color:grey !important;
 }
 
@@ -425,6 +425,8 @@ p{
     visibility: visible;
     opacity: 1;
 }
+
+/*responsive platform*/
 
 @media only screen and (min-width: 601px){
    .container {

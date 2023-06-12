@@ -470,6 +470,7 @@ section{
     visibility: visible;
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
+    z-index: 1000;
 }
 
 .popup img{
@@ -480,6 +481,7 @@ section{
     margin-bottom: 5px;
     border-radius: 10px;
     box-shadow: rgba(0,0,0,0.2);
+    z-index: 10000;
 }
 
 .popup h2{
