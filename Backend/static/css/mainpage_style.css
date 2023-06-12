@@ -716,7 +716,7 @@ footer{
         padding: 20px 80px;
     }
     header {
-        width:fit-content;
+        width:330%;
     }
     .navlinks a{
         padding:10px 0px;
@@ -793,7 +793,7 @@ footer{
     }
     /*footer*/
     footer{
-        width:344%;
+        width:330%;
     }
     .left .content p{
         padding-right: 0px;
