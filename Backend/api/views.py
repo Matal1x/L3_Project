@@ -115,7 +115,7 @@ def api_put_MODIFY(request, graph, subject, predicat, objectV, *args, **kwargs):
     
     subject=PY4J_customf.None_affirmer(subject); predicat=PY4J_customf.None_affirmer(predicat); objectV=PY4J_customf.None_affirmer(objectV)
     (subject, predicat, objectV)= PY4J_customf.triple_adapter(subject, predicat, None, graph)
-    if not PY4J_customf.ASK_QUERY(graph, subject, predicat, objectV):
+    if not PY4J_customf.ASK_QUERY(graph, subject, predicat, "None"):
         return Response("Cannot Modify what doesn't exist.", status=404)
     
     result = PY4J_customf.DELETE_INSERT_QUERY(graph, subject, predicat, objectV)
