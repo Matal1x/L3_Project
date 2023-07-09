@@ -1,4 +1,0 @@
-Manifest-version: 1.0
-Class-Path: kvclient.jar py4j0.10.9.jar
-Main-class: server.LobEntryPoint
-
